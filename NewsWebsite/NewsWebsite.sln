@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Web", "1.Web", "{F8C68562-2F70-40DE-ADD4-C8B7151DD1C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Services", "2.Services", "{86DCB518-A384-416C-B875-DF3755AA36BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Data", "3.Data", "{B7684BC7-0716-40CA-A8F6-539FECB8CD3A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Cross", "4.Cross", "{62D8C9B0-297C-4BCE-945C-25EC397FDF6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsWebsite", "NewsWebsite\NewsWebsite.csproj", "{6AC90B64-D503-4085-93FF-414FA1A47452}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AC90B64-D503-4085-93FF-414FA1A47452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC90B64-D503-4085-93FF-414FA1A47452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC90B64-D503-4085-93FF-414FA1A47452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC90B64-D503-4085-93FF-414FA1A47452}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AC90B64-D503-4085-93FF-414FA1A47452} = {F8C68562-2F70-40DE-ADD4-C8B7151DD1C6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A53DF78A-FAA4-4613-8FD3-52DD0F8EF351}
+	EndGlobalSection
+EndGlobal

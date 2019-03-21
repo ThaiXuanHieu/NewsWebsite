@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lá Cải Talk</title>
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link rel="icon" href="~/Assets/image/icon.png" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <div class="header">
+        <div class="top">
+            <a href=""><img class="logo" src="~/Assets/image/logo.png"></a>
+        </div>
+        <div class="topnav" id="mytopnav">
+            <a href="#congnghe">CÔNG NGHỆ</a>
+            <a href="#laptrinh">LẬP TRÌNH</a>
+            <a href="#tools&tips">TOOLS&TIPS</a>
+            <a href="#sukien">SỰ KIỆN</a>
+            <div class="search-container">
+                <form action="">
+                    <input type="text" placeholder="TÌM KIẾM..." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <footer>
+        <div class="down">
+            <br>
+            <br>
+            <hr>
+            <h3>VỀ CHÚNG TÔI</h3>
+            <li>Design by Hiếu XT</li>
+            <li>Nguồn Trang tin tức về công nghệ số 1 Việt Nam</li>
+            <h3>THEO CHÚNG TÔI</h3>
+            <div>
+                <pre><a href="" title="Facebook"><img src="~/Assets/image/facebook.png"></a><a href="" title="Yotube"><img src="~/Assets/image/yotube.png"></a><a href="https://thaixuanhieu.github.io/" title="GitHub" target="_blank"><img src="~/Assets/image/github.ico"></a></pre>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="~/Assets/js/script.js"></script>
+</body>
+</html>
