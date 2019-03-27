@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NewsWebsite.Core
 {
-    class PasswordHash
+    public class PasswordHash
     {
         private static string MD5Hash(string input)
         {

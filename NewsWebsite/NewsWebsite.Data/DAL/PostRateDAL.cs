@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace NewsWebsite.Data.DAL
 {
-    public class UserDAL
+    class PostRateRateDAL
     {
         private DefaultDbContext context = new DefaultDbContext();
 
-        public User GetByUsername(string username)
+        public PostRate GetById(long Id)
         {
             //Get from database
-            var user = context.Users
-                .Where(i => i.Username == username && i.IsDeleted == false)
+            var postRate = context.PostRates
+                .Where(i => i.Id == Id)//&& i.IsDeleted == false
                 .FirstOrDefault();
-            return user;
+            return postRate;
         }
 
-        public bool Update(User model)
+        public bool Update(PostRate model)
         {
             try
             {
-                //Get item user with Id from database
-                var item = context.Users.Where(i => i.Id == model.Id).FirstOrDefault();
+                //Get item PostRate with Id from database
+                var item = context.PostRates.Where(i => i.Id == model.Id).FirstOrDefault();
 
                 //Set value item with value from model
-                item.Username = model.Username;
+                item.Id = model.Id;
 
                 //Save change to database
                 context.SaveChanges();
@@ -40,18 +40,18 @@ namespace NewsWebsite.Data.DAL
             }
         }
 
-        public bool Create(User model)
+        public bool Create(PostRate model)
         {
             try
             {
                 //Initialization empty item
-                var item = new User();
+                var item = new PostRate();
 
                 //Set value for item with value from model
-                item.Username = model.Username;
+                item.Id = model.Id;
 
                 //Add item to entity
-                context.Users.Add(item);
+                context.PostRates.Add(item);
                 //Save to database
                 context.SaveChanges();
                 return true;
@@ -67,10 +67,10 @@ namespace NewsWebsite.Data.DAL
             try
             {
                 //Tương tự update
-                var item = context.Users.SingleOrDefault(i => i.Id == id);
+                var item = context.PostRates.SingleOrDefault(i => i.Id == id);
 
                 //Remove item.
-                context.Users.Remove(item);
+                context.PostRates.Remove(item);
 
                 //Change database
                 context.SaveChanges();

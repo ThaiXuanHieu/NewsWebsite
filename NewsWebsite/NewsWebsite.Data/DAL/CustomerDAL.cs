@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace NewsWebsite.Data.DAL
 {
-    public class UserDAL
+    public class CustomerDAL
     {
         private DefaultDbContext context = new DefaultDbContext();
 
-        public User GetByUsername(string username)
+        public Customer GetByUsername(string Username)
         {
             //Get from database
-            var user = context.Users
-                .Where(i => i.Username == username && i.IsDeleted == false)
+            var customer = context.Customers
+                .Where(i => i.Username == Username && i.IsDeleted == false)
                 .FirstOrDefault();
-            return user;
+            return customer;
         }
 
-        public bool Update(User model)
+        public bool Update(Customer model)
         {
             try
             {
-                //Get item user with Id from database
-                var item = context.Users.Where(i => i.Id == model.Id).FirstOrDefault();
+                //Get item Customer with Id from database
+                var item = context.Customers.Where(i => i.Id == model.Id).FirstOrDefault();
 
                 //Set value item with value from model
                 item.Username = model.Username;
@@ -40,18 +40,18 @@ namespace NewsWebsite.Data.DAL
             }
         }
 
-        public bool Create(User model)
+        public bool Create(Customer model)
         {
             try
             {
                 //Initialization empty item
-                var item = new User();
+                var item = new Customer();
 
                 //Set value for item with value from model
                 item.Username = model.Username;
 
                 //Add item to entity
-                context.Users.Add(item);
+                context.Customers.Add(item);
                 //Save to database
                 context.SaveChanges();
                 return true;
@@ -67,10 +67,10 @@ namespace NewsWebsite.Data.DAL
             try
             {
                 //Tương tự update
-                var item = context.Users.SingleOrDefault(i => i.Id == id);
+                var item = context.Customers.SingleOrDefault(i => i.Id == id);
 
                 //Remove item.
-                context.Users.Remove(item);
+                context.Customers.Remove(item);
 
                 //Change database
                 context.SaveChanges();

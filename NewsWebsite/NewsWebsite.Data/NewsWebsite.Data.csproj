@@ -50,12 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\DefaultDbContext.cs" />
+    <Compile Include="DAL\CategoryDAL.cs" />
+    <Compile Include="DAL\CustomerDAL.cs" />
+    <Compile Include="DAL\FunctionDAL.cs" />
+    <Compile Include="DAL\PostCommentDAL.cs" />
+    <Compile Include="DAL\PostDAL.cs" />
+    <Compile Include="DAL\PostRateDAL.cs" />
+    <Compile Include="DAL\RoleDAL.cs" />
+    <Compile Include="DAL\RoleFunctionRelationshipDAL.cs" />
+    <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="DAL\UserRoleRelationshipDAL.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="DefaultDbContext.cs" />
+    <Compile Include="Entities\Function.cs" />
+    <Compile Include="Entities\Post.cs" />
+    <Compile Include="Entities\PostComment.cs" />
+    <Compile Include="Entities\PostRate.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\RoleFunctionRelationship.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserRoleRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

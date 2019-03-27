@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace NewsWebsite.Data.DAL
 {
-    public class UserDAL
+    class RoleFunctionRelationshipFunctionRelationshipDAL
     {
         private DefaultDbContext context = new DefaultDbContext();
 
-        public User GetByUsername(string username)
+        public RoleFunctionRelationship GetById(long Id)
         {
             //Get from database
-            var user = context.Users
-                .Where(i => i.Username == username && i.IsDeleted == false)
+            var roleFunctionRelationship = context.RoleFunctionRelationships
+                .Where(i => i.Id == Id && i.IsDeleted == false)//
                 .FirstOrDefault();
-            return user;
+            return roleFunctionRelationship;
         }
 
-        public bool Update(User model)
+        public bool Update(RoleFunctionRelationship model)
         {
             try
             {
-                //Get item user with Id from database
-                var item = context.Users.Where(i => i.Id == model.Id).FirstOrDefault();
+                //Get item RoleFunctionRelationship with Id from database
+                var item = context.RoleFunctionRelationships.Where(i => i.Id == model.Id).FirstOrDefault();
 
                 //Set value item with value from model
-                item.Username = model.Username;
+                item.Id = model.Id;
 
                 //Save change to database
                 context.SaveChanges();
@@ -40,18 +40,18 @@ namespace NewsWebsite.Data.DAL
             }
         }
 
-        public bool Create(User model)
+        public bool Create(RoleFunctionRelationship model)
         {
             try
             {
                 //Initialization empty item
-                var item = new User();
+                var item = new RoleFunctionRelationship();
 
                 //Set value for item with value from model
-                item.Username = model.Username;
+                item.Id = model.Id;
 
                 //Add item to entity
-                context.Users.Add(item);
+                context.RoleFunctionRelationships.Add(item);
                 //Save to database
                 context.SaveChanges();
                 return true;
@@ -67,10 +67,10 @@ namespace NewsWebsite.Data.DAL
             try
             {
                 //Tương tự update
-                var item = context.Users.SingleOrDefault(i => i.Id == id);
+                var item = context.RoleFunctionRelationships.SingleOrDefault(i => i.Id == id);
 
                 //Remove item.
-                context.Users.Remove(item);
+                context.RoleFunctionRelationships.Remove(item);
 
                 //Change database
                 context.SaveChanges();
