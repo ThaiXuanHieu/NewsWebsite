@@ -29,6 +29,10 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value item with value from model
                 item.Id = model.Id;
+                item.PostId = model.PostId;
+                item.CommentedBy = model.CommentedBy;
+                item.Content = model.Content;
+                item.CommentedTime = model.CommentedTime;
 
                 //Save change to database
                 context.SaveChanges();
@@ -49,7 +53,10 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value for item with value from model
                 item.Id = model.Id;
-
+                item.PostId = model.PostId;
+                item.CommentedBy = model.CommentedBy;
+                item.Content = model.Content;
+                item.CommentedTime = model.CommentedTime;
                 //Add item to entity
                 context.PostComments.Add(item);
                 //Save to database

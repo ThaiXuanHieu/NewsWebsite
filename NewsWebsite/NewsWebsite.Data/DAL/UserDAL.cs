@@ -29,6 +29,22 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value item with value from model
                 item.Username = model.Username;
+                item.PasswordEncrypted = model.PasswordEncrypted;
+                item.PasswordSalt = model.PasswordSalt;
+                item.FirstName = model.FirstName;
+                item.LastName = model.LastName;
+                item.Sex = model.Sex;
+                item.DateOfBirth = model.DateOfBirth;
+                item.PhoneNumber = model.PhoneNumber;
+                item.Email = model.Email;
+                item.Address = model.Address;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifiedTime = model.ModifiedTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
 
                 //Save change to database
                 context.SaveChanges();
@@ -49,7 +65,22 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value for item with value from model
                 item.Username = model.Username;
-
+                item.PasswordEncrypted = model.PasswordEncrypted;
+                item.PasswordSalt = model.PasswordSalt;
+                item.FirstName = model.FirstName;
+                item.LastName = model.LastName;
+                item.Sex = model.Sex;
+                item.DateOfBirth = model.DateOfBirth;
+                item.PhoneNumber = model.PhoneNumber;
+                item.Email = model.Email;
+                item.Address = model.Address;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifiedTime = model.ModifiedTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
                 //Add item to entity
                 context.Users.Add(item);
                 //Save to database

@@ -11,7 +11,13 @@ namespace NewsWebsite.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
+            if (Session["UserId"] == null || Session["UserId"].ToString() == null)
+            {
+                return Redirect("/Admin/Login");
+            }
             return View();
         }
+
+        
     }
 }

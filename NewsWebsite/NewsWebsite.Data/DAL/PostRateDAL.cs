@@ -29,6 +29,10 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value item with value from model
                 item.Id = model.Id;
+                item.PostId = model.PostId;
+                item.RatedBy = model.RatedBy;
+                item.Mark = model.Mark;
+                item.RatedTime = model.RatedTime;
 
                 //Save change to database
                 context.SaveChanges();
@@ -49,7 +53,10 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value for item with value from model
                 item.Id = model.Id;
-
+                item.PostId = model.PostId;
+                item.RatedBy = model.RatedBy;
+                item.Mark = model.Mark;
+                item.RatedTime = model.RatedTime;
                 //Add item to entity
                 context.PostRates.Add(item);
                 //Save to database

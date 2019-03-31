@@ -5,35 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 using NewsWebsite.Core;
 using NewsWebsite.Data.DAL;
+using NewsWebsite.Data.Entities;
 
 namespace NewsWebsite.Service
 {
     public class UserService
     {
-        public bool LoginByCredential(string username, string password)
+        public User LoginByCredential(string username, string password)
         {
             UserDAL userDAL = new UserDAL();
 
             if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
-                return false;
+                return null;
             }
 
             var user = userDAL.GetByUsername(username);
             if (user == null)
             {
-                return false;
+                return null;
             }
 
             var passwordSalt = user.PasswordSalt;
             var passwordEncrypt = PasswordHash.EncryptionPasswordWithSalt(password, passwordSalt);
             if (passwordEncrypt == user.PasswordEncrypted)
             {
-                return true;
+                return user;
             }
             else
             {
-                return false;
+                return null;
             }
 
         }

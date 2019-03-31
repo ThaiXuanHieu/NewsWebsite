@@ -9,13 +9,17 @@ namespace NewsWebsite.Data.DAL
 {
     public class CustomerDAL
     {
-        private DefaultDbContext context = new DefaultDbContext();
+        private DefaultDbContext context;
 
-        public Customer GetByUsername(string Username)
+        public CustomerDAL()
+        {
+            context = new DefaultDbContext();
+        }
+        public Customer GetById(long id)
         {
             //Get from database
             var customer = context.Customers
-                .Where(i => i.Username == Username && i.IsDeleted == false)
+                .Where(i => i.Id == id && i.IsDeleted == false)
                 .FirstOrDefault();
             return customer;
         }
@@ -29,6 +33,20 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value item with value from model
                 item.Username = model.Username;
+                item.PasswordEncrypted = model.PasswordEncrypted;
+                item.PasswordSalt = model.PasswordSalt;
+                item.FirstName = model.FirstName;
+                item.LastName = model.LastName;
+                item.PhoneNumber = model.PhoneNumber;
+                item.Email = model.Email;
+                item.Address = model.Address;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifiedTime = model.ModifiedTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
 
                 //Save change to database
                 context.SaveChanges();
@@ -46,10 +64,22 @@ namespace NewsWebsite.Data.DAL
             {
                 //Initialization empty item
                 var item = new Customer();
-
                 //Set value for item with value from model
                 item.Username = model.Username;
-
+                item.PasswordEncrypted = model.PasswordEncrypted;
+                item.PasswordSalt = model.PasswordSalt;
+                item.FirstName = model.FirstName;
+                item.LastName = model.LastName;
+                item.PhoneNumber = model.PhoneNumber;
+                item.Email = model.Email;
+                item.Address = model.Address;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifiedTime = model.ModifiedTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
                 //Add item to entity
                 context.Customers.Add(item);
                 //Save to database

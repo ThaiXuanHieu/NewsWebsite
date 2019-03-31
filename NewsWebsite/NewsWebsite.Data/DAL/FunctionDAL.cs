@@ -29,7 +29,17 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value item with value from model
                 item.Id = model.Id;
-
+                item.Function1 = model.Function1;
+                item.Level = model.Level;
+                item.ParentId = model.ParentId;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifieTime = model.ModifieTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
+                item.Status = model.Status;
                 //Save change to database
                 context.SaveChanges();
                 return true;
@@ -49,6 +59,17 @@ namespace NewsWebsite.Data.DAL
 
                 //Set value for item with value from model
                 item.Id = model.Id;
+                item.Function1 = model.Function1;
+                item.Level = model.Level;
+                item.ParentId = model.ParentId;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifieTime = model.ModifieTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
+                item.Status = model.Status;
 
                 //Add item to entity
                 context.Functions.Add(item);
