@@ -22,9 +22,11 @@ namespace NewsWebsite.Areas.Admin.Controllers
         public ActionResult LoginByCredential(string Username, string Password)
         {
             UserService userService = new UserService();
+
             if (ModelState.IsValid)
             {
                 var login = userService.LoginByCredential(Username, Password);
+
                 if (login == null)
                 {
                     ModelState.AddModelError("LoginError", "Đăng nhập không thành công");
