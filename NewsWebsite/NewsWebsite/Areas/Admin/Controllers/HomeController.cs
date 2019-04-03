@@ -6,15 +6,12 @@ using System.Web.Mvc;
 
 namespace NewsWebsite.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AdminBaseController
     {
         // GET: Admin/Home
         public ActionResult Index()
         {
-            if (Session["UserId"] == null || Session["UserId"].ToString() == null)
-            {
-                return Redirect("/Admin/Login");
-            }
+            
             return View();
         }
 

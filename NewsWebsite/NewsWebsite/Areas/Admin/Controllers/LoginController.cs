@@ -1,4 +1,5 @@
-﻿using NewsWebsite.Service;
+﻿using NewsWebsite.Core;
+using NewsWebsite.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,13 @@ namespace NewsWebsite.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult LoginByCredential(string Username, string Password)
+        public ActionResult LoginByCredential(UserLoginModel model)
         {
             UserService userService = new UserService();
 
             if (ModelState.IsValid)
             {
-                var login = userService.LoginByCredential(Username, Password);
+                var login = userService.LoginByCredential(model.Username, model.Password);
 
                 if (login == null)
                 {
@@ -45,6 +46,11 @@ namespace NewsWebsite.Areas.Admin.Controllers
             }
 
             return View("Index");
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return Redirect("/Admin/Login");
         }
     }
 }

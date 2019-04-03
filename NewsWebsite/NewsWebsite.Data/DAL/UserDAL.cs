@@ -1,4 +1,5 @@
-﻿using NewsWebsite.Data.Entities;
+﻿
+using NewsWebsite.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace NewsWebsite.Data.DAL
         {
             //Get from database
             var user = context.Users
-                .Where(i => i.Username == username && i.IsDeleted == false)
+                .Where(i => i.Username == username && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
                 .FirstOrDefault();
             return user;
         }

@@ -145,6 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Assets\css\sb-admin-2.css" />
     <Content Include="Areas\Admin\Assets\css\sb-admin-2.min.css" />
+    <Content Include="Areas\Admin\Assets\img\img-profile.png" />
     <Content Include="Areas\Admin\Assets\img\undraw_posting_photo.svg" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-area-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-bar-demo.js" />
@@ -1944,6 +1946,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\AdminBase\" />
     <Folder Include="Assets\fonts\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -1951,6 +1954,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NewsWebsite.Core\NewsWebsite.Core.csproj">
+      <Project>{DFCA8F72-F205-4512-AE1B-72CE1639915B}</Project>
+      <Name>NewsWebsite.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NewsWebsite.Data\NewsWebsite.Data.csproj">
       <Project>{E31ACE48-BE97-4C35-AA8D-A2C2379EAB26}</Project>
       <Name>NewsWebsite.Data</Name>
