@@ -1,4 +1,5 @@
-﻿using NewsWebsite.Data.Entities;
+﻿using NewsWebsite.Core;
+using NewsWebsite.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewsWebsite.Data.DAL
 {
-    class PostDAL
+    public class PostDAL
     {
         private DefaultDbContext context = new DefaultDbContext();
 
@@ -15,8 +16,24 @@ namespace NewsWebsite.Data.DAL
         {
             //Get from database
             var post = context.Posts
-                .Where(i => i.Id == Id && i.IsDeleted == false)
+                .Where(i => i.Id == Id && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
                 .FirstOrDefault();
+            return post;
+        }
+
+        public Post GetByAlias(string alias)
+        {
+            var post = context.Posts
+               .Where(i => i.Alias.Contains(alias) && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
+               .FirstOrDefault();
+            return post;
+        }
+
+        public IEnumerable<Post> GetList()
+        {
+            var post = context.Posts
+               .Where(i => i.IsDeleted == false || i.IsDeleted.Equals(null))
+               .ToList();
             return post;
         }
 
@@ -28,23 +45,17 @@ namespace NewsWebsite.Data.DAL
                 var item = context.Posts.Where(i => i.Id == model.Id).FirstOrDefault();
 
                 //Set value item with value from model
-                item.Id = model.Id;
                 item.CategoryId = model.CategoryId;
                 item.Title = model.Title;
                 item.Content = model.Content;
                 item.Summary = model.Summary;
                 item.Resource = model.Resource;
                 item.Image = model.Image;
-                item.View = model.View;
                 item.Tags = model.Tags;
-                item.PostStatus = model.PostStatus;
                 item.CreatedBy = model.CreatedBy;
                 item.CreatedTime = model.CreatedTime;
-                item.ModifiedBy = model.ModifiedBy;
-                item.ModifiedTime = model.ModifiedTime;
                 item.IsDeleted = model.IsDeleted;
-                item.DeletedBy = model.DeletedBy;
-                item.DeletedTime = model.DeletedTime;
+
                 //Save change to database
                 context.SaveChanges();
                 return true;
@@ -60,28 +71,24 @@ namespace NewsWebsite.Data.DAL
             try
             {
                 //Initialization empty item
-                var item = new Post();
+                var post = new Post();
 
                 //Set value for item with value from model
-                item.Id = model.Id;
-                item.CategoryId = model.CategoryId;
-                item.Title = model.Title;
-                item.Content = model.Content;
-                item.Summary = model.Summary;
-                item.Resource = model.Resource;
-                item.Image = model.Image;
-                item.View = model.View;
-                item.Tags = model.Tags;
-                item.PostStatus = model.PostStatus;
-                item.CreatedBy = model.CreatedBy;
-                item.CreatedTime = model.CreatedTime;
-                item.ModifiedBy = model.ModifiedBy;
-                item.ModifiedTime = model.ModifiedTime;
-                item.IsDeleted = model.IsDeleted;
-                item.DeletedBy = model.DeletedBy;
-                item.DeletedTime = model.DeletedTime;
+                post.CategoryId = model.CategoryId;
+                post.Title = model.Title;
+                post.Alias = StringHelper.VNDecode(model.Title);
+                post.Content = model.Content;
+                post.Summary = model.Summary;
+                post.Resource = model.Resource;
+                post.Image = model.Image;
+                post.Tags = model.Tags;
+                post.CreatedBy = model.CreatedBy;
+                post.CreatedTime = DateTime.Now;
+                post.IsDeleted = false;
+                post.PostStatus = 0;
+
                 //Add item to entity
-                context.Posts.Add(item);
+                context.Posts.Add(post);
                 //Save to database
                 context.SaveChanges();
                 return true;

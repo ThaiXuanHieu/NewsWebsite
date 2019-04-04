@@ -16,6 +16,9 @@ namespace NewsWebsite.Data.Entities
         [StringLength(500)]
         public string Title { get; set; }
 
+        [StringLength(500)]
+        public string Alias { get; set; }
+
         [Column(TypeName = "ntext")]
         public string Content { get; set; }
 

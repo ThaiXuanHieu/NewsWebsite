@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "CreateHandle";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tạo Bài viết</h2>
+<form action="/Admin/Post/CreatAaction" method="post">
+    <div>
+        <label>Tiêu đề:</label>
+        <input type="text" class="form-control" name="Title" />
+    </div>
+    <div>
+        <label>Trích dẫn:</label>
+        <input type="text" class="form-control" name="Summary" />
+    </div>
+    <div>
+        <label>Nội dung:</label>
+        <textarea type="text" class="form-control" name="Content" rows="10"></textarea>
+    </div>
+    <div>
+        <label>Ảnh đại diện:</label>
+        <input type="file" accept="image" class="form-control" name="Avatar" />
+    </div>
+    <div>
+        <label>Nguồn:</label>
+        <input type="text" class="form-control" name="Resource" />
+    </div>
+    <div>
+        <label>Tag:</label>
+        <input type="text" class="form-control" name="Tag" />
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-success">Cập nhật</button>
+    @Html.ValidationSummary()
+</form>

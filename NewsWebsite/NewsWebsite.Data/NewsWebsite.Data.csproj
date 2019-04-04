@@ -73,7 +73,12 @@
     <Compile Include="Entities\UserRoleRelationship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\NewsWebsite.Core\NewsWebsite.Core.csproj">
+      <Project>{DFCA8F72-F205-4512-AE1B-72CE1639915B}</Project>
+      <Name>NewsWebsite.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
