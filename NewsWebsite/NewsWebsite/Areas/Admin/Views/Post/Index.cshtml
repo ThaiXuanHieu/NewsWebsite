@@ -4,9 +4,12 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     var i = 0;
 }
+<head>
+    <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
+</head>
 <div>
-    <h2>Quản lý bài viết</h2>
-    <a href="/Admin/Post/CreateHandle" class="btn btn-primary"><i class="fa fa-plus"></i> Tạo bài viết</a>
+    <h2 class="unknown">Quản lý bài viết</h2>
+    <a href="/Admin/Post/CreateHandle" class="btn btn-primary unknown"><i class="fa fa-plus"></i> Tạo bài viết</a>
     <hr />
     <table class="table table-hover table-light">
         <thead>

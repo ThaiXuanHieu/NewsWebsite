@@ -3,9 +3,11 @@
     ViewBag.Title = "CreateHandle";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Tạo Bài viết</h2>
-<form action="/Admin/Post/CreatAaction" method="post">
+<head>
+    <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet"/>
+</head>
+<h2 class="unknown">Tạo Bài viết</h2>
+<form action="/Admin/Post/CreatAaction" method="post" class="unknown">
     <div>
         <label>Tiêu đề:</label>
         <input type="text" class="form-control" name="Title" />
