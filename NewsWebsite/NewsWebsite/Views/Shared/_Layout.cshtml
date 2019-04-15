@@ -17,19 +17,21 @@
 <body>
     <div class="header">
         <div class="top">
-            <a href=""><img class="logo" src="~/Assets/image/logo.png"></a>
+            <a href="#"><img class="logo" src="~/Assets/image/logo.png"></a>
         </div>
         <div class="topnav" id="mytopnav">
             <a href="#congnghe">CÔNG NGHỆ</a>
             <a href="#laptrinh">LẬP TRÌNH</a>
             <a href="#tools&tips">TOOLS&TIPS</a>
             <a href="#sukien">SỰ KIỆN</a>
+            
             <div class="search-container">
                 <form action="">
                     <input type="text" placeholder="TÌM KIẾM..." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
+            <a href="#sukien">ĐĂNG NHẬP</a>
         </div>
     </div>
     @RenderBody()
@@ -42,8 +44,11 @@
             <li>Design by Hiếu XT</li>
             <li>Nguồn Trang tin tức về công nghệ số 1 Việt Nam</li>
             <h3>THEO CHÚNG TÔI</h3>
-            <div>
+            <div class="icon-bar">
                 <pre><a href="" title="Facebook"><img src="~/Assets/image/facebook.png"></a><a href="" title="Yotube"><img src="~/Assets/image/yotube.png"></a><a href="https://thaixuanhieu.github.io/" title="GitHub" target="_blank"><img src="~/Assets/image/github.ico"></a></pre>
+                @*<span><a><i class="fab fa-facebook icon-bar-item"></i></a></span>
+                <span><a><i class="fa fa-youtube icon-bar-item"></i></a></span>
+                <span><a><i class="fab fa-github icon-bar-item"></i></a></span>*@
             </div>
 
         </div>
