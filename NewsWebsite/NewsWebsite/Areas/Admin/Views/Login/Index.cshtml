@@ -45,12 +45,15 @@
                                         <h1 class="h4 text-gray-900 mb-4">Đăng nhập</h1>
                                     </div>
                                     <form action="/Admin/Login/LoginByCredential" method="post" class="user">
-                                        
+                                        @*Thuộc tính "method" chỉ định cách gửi dữ liệu trong form 
+                                        (dữ liệu trong form được gửi đến trang được chỉ định trong thuộc tính "action")*@
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" name="Username" aria-describedby="emailHelp" placeholder="Tài khoản">
+                                            <input type="text" class="form-control form-control-user" name="Username" placeholder="Tài khoản">
+                                            @*Username = "admin"*@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" name="Password" placeholder="Mật khẩu">
+                                            @*Password = "admin"*@
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -60,11 +63,12 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Đăng nhập
+                                            @*Nhấn vào nút "Đăng nhập" và "input" sẽ được gửi đến một trang trên máy chủ có tên "/Admin/Login/LoginByCredential".*@
                                         </button>
                                         <div class="text-center">
                                             @Html.ValidationSummary()
                                         </div>
-                                        
+
                                     </form>
                                     <hr>
                                     <div class="text-center">
