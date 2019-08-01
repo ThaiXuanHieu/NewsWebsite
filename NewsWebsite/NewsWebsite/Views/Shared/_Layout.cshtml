@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+    @RenderSection("script", required:false)
 </head>
 <body>
     <div class="header">
@@ -41,8 +41,11 @@
             <br>
             <hr>
             <h3>VỀ CHÚNG TÔI</h3>
-            <li>Design by Hiếu XT</li>
-            <li>Nguồn Trang tin tức về công nghệ số 1 Việt Nam</li>
+            <ul>
+                <li>Design by Hiếu XT</li>
+                <li>Nguồn Trang tin tức về công nghệ số 1 Việt Nam</li>
+            </ul>
+            
             <h3>THEO CHÚNG TÔI</h3>
             <div class="icon-bar">
                 <pre><a href="" title="Facebook"><img src="~/Assets/image/facebook.png"></a><a href="" title="Yotube"><img src="~/Assets/image/yotube.png"></a><a href="https://thaixuanhieu.github.io/" title="GitHub" target="_blank"><img src="~/Assets/image/github.ico"></a></pre>
