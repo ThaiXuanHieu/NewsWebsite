@@ -23,7 +23,7 @@ namespace NewsWebsite.Data.Entities
         [StringLength(50)]
         public string FirstName { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string LastName { get; set; }
 
         public short? Sex { get; set; }

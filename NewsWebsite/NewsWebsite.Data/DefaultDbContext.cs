@@ -1,10 +1,9 @@
-namespace NewsWebsite.Data
+namespace NewsWebsite.Data.Entities
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using NewsWebsite.Data.Entities;
 
     public partial class DefaultDbContext : DbContext
     {
@@ -26,9 +25,6 @@ namespace NewsWebsite.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .Property(e => e.LastName)
-                .IsFixedLength();
         }
     }
 }
