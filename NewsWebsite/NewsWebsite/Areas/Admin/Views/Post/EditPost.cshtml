@@ -1,0 +1,51 @@
+﻿@model NewsWebsite.Data.Entities.Post
+@{
+    ViewBag.Title = "Edit Post";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
+</head>
+<h2>Edit</h2>
+<form action="/Admin/Post/EditPostAction" method="post" class="unknown form-group">
+
+    <div>
+        <input type="hidden" name="Id" value="@Model.Id"/>
+    </div>
+
+    <div>
+        <label>Tiêu đề:</label>
+        <input type="text" class="form-control" name="Title" value="@Model.Title" />
+    </div>
+    <div>
+        <label>Danh mục :</label>
+        @Html.DropDownList("categoryName", (IEnumerable<SelectListItem>)ViewBag.ListCategoryName, new { @class= "form-control custom-select" })
+    </div>
+    <div>
+        <label>Trích dẫn:</label>
+        <input type="text" class="form-control" name="Summary" value="@Model.Summary"/>
+    </div>
+    <div>
+        <label>Nội dung:</label>
+        <textarea type="text" class="form-control" name="Content" rows="10" ></textarea>
+    </div>
+    <div>
+        <label>Ảnh đại diện:</label>
+        <input type="file" accept="image" class="form-control" name="Image" value="@Model.Image" />
+    </div>
+    <div>
+        <label>Nguồn:</label>
+        <input type="text" class="form-control" name="Resource" value="@Model.Resource" />
+    </div>
+    <div>
+        <label>Tag:</label>
+        <input type="text" class="form-control" name="Tags" value="@Model.Tags" />
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-success">Cập nhật</button>
+    @Html.ValidationSummary()
+</form>
+
+
+

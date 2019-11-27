@@ -1,16 +1,27 @@
-﻿
+﻿@model IEnumerable<NewsWebsite.Data.Entities.Category>
 @{
     ViewBag.Title = "CreateHandle";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <head>
-    <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet"/>
+    <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
 </head>
 <h2 class="unknown">Tạo Bài viết</h2>
 <form action="/Admin/Post/CreateAction" method="post" class="unknown">
     <div>
         <label>Tiêu đề:</label>
         <input type="text" class="form-control" name="Title" />
+    </div>
+    <div>
+        <label>Danh mục :</label>
+        <select class="custom-select" name="CategoryId">
+            <option selected value="1">Web Design</option>
+            @foreach(var item in Model)
+            {
+                <option value="@item.Id">@item.CategoryName</option>
+            }
+
+        </select>
     </div>
     <div>
         <label>Trích dẫn:</label>
@@ -22,7 +33,7 @@
     </div>
     <div>
         <label>Ảnh đại diện:</label>
-        <input type="file" accept="image" class="form-control" name="Avatar" />
+        <input type="file" accept="image" class="form-control" name="Image" />
     </div>
     <div>
         <label>Nguồn:</label>
@@ -30,7 +41,7 @@
     </div>
     <div>
         <label>Tag:</label>
-        <input type="text" class="form-control" name="Tag" />
+        <input type="text" class="form-control" name="Tags" />
     </div>
     <hr />
     <button type="submit" class="btn btn-success">Cập nhật</button>

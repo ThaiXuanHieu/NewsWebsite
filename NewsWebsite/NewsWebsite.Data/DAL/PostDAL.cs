@@ -36,6 +36,7 @@ namespace NewsWebsite.Data.DAL
                .ToList();
             return post;
         }
+        
 
         public bool Update(Post model)
         {

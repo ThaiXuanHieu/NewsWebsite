@@ -1,24 +1,27 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>WebMag HTML Template</title>
+    <title>News Website</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="./Assets/css/bootstrap.min.css" />
+
+    <link href="~/Assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="./Assets/css/font-awesome.min.css">
+
+    <link href="~/Assets/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="./Assets/css/style.css" />
+
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,10 +49,11 @@
                     <ul class="nav-menu nav navbar-nav">
                         <li><a href="category.html">News</a></li>
                         <li><a href="category.html">Popular</a></li>
-                        <li class="cat-1"><a href="category.html">Web Design</a></li>
+                        @Html.Action("CategoriesPartial", "Categories")
+                        @*<li class="cat-1"><a href="category.html">Web Design</a></li>
                         <li class="cat-2"><a href="category.html">JavaScript</a></li>
                         <li class="cat-3"><a href="category.html">Css</a></li>
-                        <li class="cat-4"><a href="category.html">Jquery</a></li>
+                        <li class="cat-4"><a href="category.html">Jquery</a></li>*@
                     </ul>
                     <!-- /nav -->
                     <!-- search & aside toggle -->
@@ -201,9 +205,10 @@
     </footer>
     <!-- /Footer -->
     <!-- jQuery Plugins -->
-    <script src="./Assets/js/jquery.min.js"></script>
-    <script src="./Assets/js/bootstrap.min.js"></script>
-    <script src="./Assets/js/main.js"></script>
+
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/jquery.min.js"></script>
+    <script src="~/Assets/js/main.js"></script>
 
 </body>
 </html>

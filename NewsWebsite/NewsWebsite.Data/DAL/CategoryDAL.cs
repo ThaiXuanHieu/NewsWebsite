@@ -7,17 +7,27 @@ using System.Threading.Tasks;
 
 namespace NewsWebsite.Data.DAL
 {
-    class CategoryDAL
+    public class CategoryDAL
     {
         private DefaultDbContext context = new DefaultDbContext();
 
-        public Category GetByCategoryName(string CategoryName)
+        public Category GetById(long Id)
         {
             //Get from database
             var category = context.Categories
-                .Where(i => i.CategoryName == CategoryName && i.IsDeleted == false)
+                .Where(i => i.Id == Id && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
                 .FirstOrDefault();
             return category;
+        }
+
+        
+
+        public IEnumerable<Category> GetList()
+        {
+            var Category = context.Categories
+               .Where(i => i.IsDeleted == false || i.IsDeleted.Equals(null))
+               .ToList();
+            return Category;
         }
 
         public bool Update(Category model)
@@ -28,18 +38,7 @@ namespace NewsWebsite.Data.DAL
                 var item = context.Categories.Where(i => i.Id == model.Id).FirstOrDefault();
 
                 //Set value item with value from model
-                item.CategoryName = model.CategoryName;
-                item.Level = model.Level;
-                item.ParentId = model.ParentId;
-                item.CreatedBy = model.CreatedBy;
-                item.CreatedTime = model.CreatedTime;
-                item.ModifiedBy = model.ModifiedBy;
-                item.ModifiedTime = model.ModifiedTime;
-                item.IsDeleted = model.IsDeleted;
-                item.DeletedBy = model.DeletedBy;
-                item.DeletedTime = model.DeletedTime;
-                item.Status = model.Status;
-
+                
                 //Save change to database
                 context.SaveChanges();
                 return true;
@@ -55,22 +54,13 @@ namespace NewsWebsite.Data.DAL
             try
             {
                 //Initialization empty item
-                var item = new Category();
+                var category = new Category();
 
                 //Set value for item with value from model
-                item.CategoryName = model.CategoryName;
-                item.Level = model.Level;
-                item.ParentId = model.ParentId;
-                item.CreatedBy = model.CreatedBy;
-                item.CreatedTime = model.CreatedTime;
-                item.ModifiedBy = model.ModifiedBy;
-                item.ModifiedTime = model.ModifiedTime;
-                item.IsDeleted = model.IsDeleted;
-                item.DeletedBy = model.DeletedBy;
-                item.DeletedTime = model.DeletedTime;
-                item.Status = model.Status;
+                
+
                 //Add item to entity
-                context.Categories.Add(item);
+                context.Categories.Add(category);
                 //Save to database
                 context.SaveChanges();
                 return true;

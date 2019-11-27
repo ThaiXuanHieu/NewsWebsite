@@ -149,7 +149,10 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewestPostsController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1749,7 +1752,6 @@
     <Content Include="Assets\js\jquery.min.js" />
     <Content Include="Assets\js\main.js" />
     <Content Include="Assets\js\script.js" />
-    <Content Include="Assets\resource\Data.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -1924,7 +1926,9 @@
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1941,6 +1945,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\AdminBase\" />
+    <Folder Include="Assets\resource\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -1951,7 +1956,11 @@
     <Content Include="Assets\fonts\fontawesome-webfont.woff" />
     <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Post\EditPost.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\NewestPosts\NewestPostsPartial.cshtml" />
+    <Content Include="Views\Categories\CategoriesPartial.cshtml" />
+    <Content Include="Views\Tags\TagsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NewsWebsite.Core\NewsWebsite.Core.csproj">

@@ -7,15 +7,16 @@ using System.Web.Mvc;
 
 namespace NewsWebsite.Controllers
 {
-    public class HomeController : Controller
+    public class TagsController : Controller
     {
+        // GET: Tags
         PostService postService = new PostService();
 
-        public ActionResult Index()
+        public PartialViewResult TagsPartial()
         {
-            return View();
+            var model = postService.GetList();
+            return PartialView(model);
         }
 
-        
     }
 }

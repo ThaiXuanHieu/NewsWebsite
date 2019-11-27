@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "Bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    var i = 0;
 }
 <head>
     <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
@@ -14,27 +13,29 @@
     <table class="table table-hover table-light">
         <thead>
             <tr>
-                <th>STT</th>
-                <th>Tên</th>
+                <th>ID</th>
+                <th>Tiêu đề</th>
                 <th>Người đăng</th>
                 <th>Thời gian</th>
                 <th>Danh mục</th>
                 <th>Trạng thái</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@(++i)</td>
-                    <td>@item.Title</td>
-                    <td>@item.CreatedBy</td>
-                    <td>@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
-                    <td>@item.CategoryId</td>
-                    <td>@item.PostStatus</td>
-                    <td><a href="/Admin/Post/HandlePostPage/@item.Id"><i class="fa fa-edit"></i></a></td>
-                </tr>
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.CreatedBy</td>
+                <td>@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
+                <td>@item.CategoryId</td>
+                <td>@item.PostStatus</td>
+                <td><a href="/Admin/Post/EditPost/@item.Id"><i class="fa fa-edit"></i></a></td>
+                <td><a href="/Admin/Post/DeletePost/@item.Id"><i class="fa fa-trash-alt"></i></a></td>
+            </tr>
             }
         </tbody>
     </table>

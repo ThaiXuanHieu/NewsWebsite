@@ -1,0 +1,7 @@
+﻿@model IEnumerable<NewsWebsite.Data.Entities.Post>
+
+@foreach (var item in Model)
+{
+    <li><a href="#">@item.Tags</a></li>
+}
+
