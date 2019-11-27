@@ -4,11 +4,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<head>
-    <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
-</head>
-<h2>Edit</h2>
-<form action="/Admin/Post/EditPostAction" method="post" class="unknown form-group">
+<h2 style="margin-left:5px">Edit</h2>
+<form action="/Admin/Post/EditPostAction" method="post" class="form-group" style="margin-left:5px">
 
     <div>
         <input type="hidden" name="Id" value="@Model.Id"/>
