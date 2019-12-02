@@ -96,5 +96,30 @@ namespace NewsWebsite.Areas.Admin.Controllers
             }
             return View("EditPost");
         }
+
+        public ActionResult Delete(long id)
+        {
+            var action = postService.Delete(id);
+            var data = postService.GetList();
+            if(data == null)
+            {
+                return HttpNotFound();
+            }
+            if(action)
+            {
+                return View("Index", data);
+            }
+            return View("Index");
+        }
+
+        public ActionResult SearchHandle(string searchString)
+        {
+            var data = postService.GetBySearchString(searchString);
+            if(data == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Index", data);
+        }
     }
 }

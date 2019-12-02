@@ -7,10 +7,19 @@
     <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
 </head>
 <div>
-    <h2 class="unknown">Quản lý bài viết</h2>
-    <a href="/Admin/Post/CreateHandle" class="btn btn-primary unknown"><i class="fa fa-plus"></i> Tạo bài viết</a>
-    <hr/>
-    <table class="table table-hover table-light">
+    <h2 style="margin-left:5px">Quản lý bài viết</h2>
+
+    <div>
+        <a href="/Admin/Post/CreateHandle" class="btn btn-primary" style="margin-left:5px; float:left"><i class="fa fa-plus"></i> Tạo bài viết</a>
+        <form action="/Admin/Post/SearchHandle" method="post" class="form-group" style="float:right">
+            <input type="text" name="searchString" class="form-control" style="width:400px; float:left" />
+            <span>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tìm kiếm</button>
+            </span>
+        </form>
+    </div>
+
+    <table class="table table-hover table-light" style="margin-left:5px">
         <thead>
             <tr>
                 <th>ID</th>
@@ -26,16 +35,16 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Title</td>
-                <td>@item.CreatedBy</td>
-                <td>@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
-                <td>@item.CategoryId</td>
-                <td>@item.PostStatus</td>
-                <td><a href="/Admin/Post/EditPost/@item.Id"><i class="fa fa-edit"></i></a></td>
-                <td><a href="/Admin/Post/DeletePost/@item.Id"><i class="fa fa-trash-alt"></i></a></td>
-            </tr>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.CreatedBy</td>
+                    <td>@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.PostStatus</td>
+                    <td><a href="/Admin/Post/EditPost/@item.Id" class="btn btn-warning">Sửa</a></td>
+                    <td><a href="/Admin/Post/DeletePost/@item.Id" class="btn btn-danger">Xóa</a></td>
+                </tr>
             }
         </tbody>
     </table>

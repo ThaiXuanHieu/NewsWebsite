@@ -7,12 +7,12 @@ using System.Web.Mvc;
 
 namespace NewsWebsite.Controllers
 {
-    public class NewestPostsController : Controller
+    public class LatestPostsController : Controller
     {
         // GET: NewestPosts
         PostService postService = new PostService();
 
-        public PartialViewResult NewestPostsPartial()
+        public PartialViewResult LatestPostsPartial()
         {
             var model = postService.GetList();
             return PartialView(model);

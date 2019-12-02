@@ -64,6 +64,15 @@ namespace NewsWebsite.Service
             return postDAL.GetById(id);
         }
 
+        public IEnumerable<Post> GetBySearchString(string searchString)
+        {
+            if(string.IsNullOrEmpty(searchString))
+            {
+                return null;
+            }
+            return postDAL.GetBySearchString(searchString);
+        }
+
         public Post GetByAlias(string alias)
         {
             if (string.IsNullOrEmpty(alias))

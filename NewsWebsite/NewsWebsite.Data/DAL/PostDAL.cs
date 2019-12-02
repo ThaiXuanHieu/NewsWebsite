@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PagedList.Mvc;
+using PagedList;
 
 namespace NewsWebsite.Data.DAL
 {
@@ -36,7 +38,14 @@ namespace NewsWebsite.Data.DAL
                .ToList();
             return post;
         }
-        
+
+        public IEnumerable<Post> GetBySearchString(string searchString)
+        {
+            var post = context.Posts
+                        .Where(i => i.Title.Contains(searchString) && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
+                        .ToList();
+            return post;
+        }
 
         public bool Update(Post model)
         {
