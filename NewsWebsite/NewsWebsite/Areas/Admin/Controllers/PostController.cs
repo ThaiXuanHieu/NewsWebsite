@@ -18,11 +18,18 @@ namespace NewsWebsite.Areas.Admin.Controllers
             return View(data);
         }
 
+        public void SetViewBag(long? selectedID = null)
+        {
+            CategoryService categoryService = new CategoryService();
+
+            ViewBag.CategoryId = new SelectList(categoryService.GetList(), "Id", "CategoryName", selectedID);
+        }
+
         public ActionResult CreateHandle()
         {
             CategoryService categoryService = new CategoryService();
-            var model = categoryService.GetList();
-            return View(model);
+            SetViewBag();
+            return View();
         }
 
         public ActionResult CreateAction(Post model)
@@ -51,21 +58,18 @@ namespace NewsWebsite.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại");
             }
+            SetViewBag(model.Id);
             return View("CreateHandle");
         }
+
+        
 
         public ActionResult EditPost(long id)
         {
             CategoryService categoryService = new CategoryService();
             var model = postService.GetById(id);
             var category = categoryService.GetById(Convert.ToInt64(model.CategoryId));
-            var categories = categoryService.GetList();
-            List<string> categoryName = new List<string>();
-            foreach (var item in categories)
-            {
-                categoryName.Add(item.CategoryName);
-            }
-            ViewBag.ListCategoryName = new SelectList(categoryName, category.CategoryName);
+            SetViewBag(category.Id);
             return View(model);
         }
         public ActionResult EditPostAction(Post model)
@@ -94,10 +98,11 @@ namespace NewsWebsite.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Sửa thất bại");
             }
+            SetViewBag(model.Id);
             return View("EditPost");
         }
 
-        public ActionResult Delete(long id)
+        public ActionResult DeletePost(long id)
         {
             var action = postService.Delete(id);
             var data = postService.GetList();

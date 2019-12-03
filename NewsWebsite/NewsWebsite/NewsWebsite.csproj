@@ -1957,13 +1957,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Post\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Post\CreateHandle.cshtml" />
     <Content Include="Assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Assets\fonts\fontawesome-webfont.woff" />
     <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="Assets\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\Post\EditPost.cshtml" />
+    <Content Include="Areas\Admin\Views\Post\CreateHandle.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\LatestPosts\LatestPostsPartial.cshtml" />
     <Content Include="Views\Categories\CategoriesPartial.cshtml" />
