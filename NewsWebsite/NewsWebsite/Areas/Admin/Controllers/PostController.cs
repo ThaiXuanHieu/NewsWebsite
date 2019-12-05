@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace NewsWebsite.Areas.Admin.Controllers
 {
-    public class PostController : Controller
+    public class PostController : AdminBaseController
     {
         private PostService postService = new PostService();
 
