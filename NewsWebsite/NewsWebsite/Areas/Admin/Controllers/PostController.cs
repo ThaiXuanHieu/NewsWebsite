@@ -31,7 +31,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
             SetViewBag();
             return View();
         }
-
+        [ValidateInput(false)]
         public ActionResult CreateAction(Post model)
         {
             model.CreatedBy = Convert.ToInt64(Session["UserId"]);
@@ -72,7 +72,9 @@ namespace NewsWebsite.Areas.Admin.Controllers
             SetViewBag(category.Id);
             return View(model);
         }
-        public ActionResult EditPostAction(Post model)
+
+        [ValidateInput(false)]
+        public ActionResult EditPostHandle(Post model)
         {
             
             if (ModelState.IsValid)

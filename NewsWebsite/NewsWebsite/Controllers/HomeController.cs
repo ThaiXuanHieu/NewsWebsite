@@ -15,7 +15,5 @@ namespace NewsWebsite.Controllers
         {
             return View();
         }
-
-        
     }
 }

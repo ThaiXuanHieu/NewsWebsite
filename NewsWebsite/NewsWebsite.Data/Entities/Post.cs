@@ -15,6 +15,7 @@
 
         [StringLength(500)]
         [Display(Name = "Tiêu đề")]
+        [Required]
         public string Title { get; set; }
 
         [StringLength(500)]
@@ -22,24 +23,29 @@
 
         [Column(TypeName = "ntext")]
         [Display(Name = "Nội dung")]
+        [Required]
         public string Content { get; set; }
 
         [StringLength(100)]
         [Display(Name = "Trích dẫn")]
+        [Required]
         public string Summary { get; set; }
 
         [StringLength(50)]
         [Display(Name = "Nguồn")]
+        [Required]
         public string Resource { get; set; }
 
         [StringLength(1000)]
         [Display(Name = "Ảnh")]
+        [Required]
         public string Image { get; set; }
 
         public long? View { get; set; }
 
         [StringLength(500)]
         [Display(Name = "Tag")]
+        [Required]
         public string Tags { get; set; }
 
         public short? PostStatus { get; set; }
