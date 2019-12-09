@@ -19,6 +19,17 @@
                 height: '450',
             }
         );
+
+
+        $(function () {
+            $("#btnSelectImage").click(function () {
+                var finder = new CKFinder();
+                finder.selectActionFunction = function (fileUrl) {
+                    $("#txtImage").val(fileUrl);
+                };
+                finder.popup();
+            });
+        });
     </script>
 }
 
@@ -63,17 +74,7 @@
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
             </div>
         </div>
-        <script language="javascript" type="text/javascript">
-            $(function () {
-                $("#btnSelectImage").click(function () {
-                    var finder = new CKFinder();
-                    finder.selectActionFunction = function (fileUrl) {
-                        $("#txtImage").val(fileUrl);
-                    };
-                    finder.popup();
-                });
-            });
-        </script>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Summary, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
