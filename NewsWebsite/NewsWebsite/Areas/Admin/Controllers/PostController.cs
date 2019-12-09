@@ -76,7 +76,8 @@ namespace NewsWebsite.Areas.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult EditPostHandle(Post model)
         {
-            
+            model.CreatedBy = Convert.ToInt64(Session["UserId"]);
+            model.CreatedTime = DateTime.Now;
             if (ModelState.IsValid)
             {
                 try
