@@ -6,11 +6,11 @@
 <head>
     <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
 </head>
-<div>
-    <h2 style="margin-left:5px">Quản lý bài viết</h2>
+<div style="margin-left:5px">
+    <h2>Quản lý bài viết</h2>
 
     <div>
-        <a href="/Admin/Post/CreateHandle" class="btn btn-primary" style="margin-left:5px; float:left"><i class="fa fa-plus"></i> Tạo bài viết</a>
+        <a href="/Admin/Post/CreateHandle" class="btn btn-primary" style="float:left"><i class="fa fa-plus"></i> Tạo bài viết</a>
         <form action="/Admin/Post/SearchHandle" method="post" class="form-group" style="float:right">
             <input type="text" name="searchString" class="form-control" style="width:400px; float:left" />
             <span>
@@ -19,7 +19,7 @@
         </form>
     </div>
 
-    <table class="table table-hover table-light" style="margin-left:5px">
+    <table class="table table-hover table-light">
         <thead>
             <tr>
                 <th>ID</th>
@@ -28,8 +28,7 @@
                 <th>Thời gian</th>
                 <th>Danh mục</th>
                 <th>Trạng thái</th>
-                <th></th>
-                <th></th>
+                <th colspan="2">Chức năng</th>
             </tr>
         </thead>
         <tbody>
@@ -39,7 +38,7 @@
                     <td>@item.Id</td>
                     <td>@item.Title</td>
                     <td>@item.CreatedBy</td>
-                    <td>@Convert.ToDateTime(@item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
+                    <td>@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
                     <td>@item.CategoryId</td>
                     <td>@item.PostStatus</td>
                     <td><a href="/Admin/Post/EditPost/@item.Id" class="btn btn-warning">Sửa</a></td>

@@ -1,4 +1,4 @@
-namespace NewsWebsite.Data.Entities
+﻿namespace NewsWebsite.Data.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -12,6 +12,8 @@ namespace NewsWebsite.Data.Entities
         public long Id { get; set; }
 
         [StringLength(200)]
+        [Display(Name = "Tên danh mục")]
+        [Required]
         public string CategoryName { get; set; }
 
         public int? Level { get; set; }

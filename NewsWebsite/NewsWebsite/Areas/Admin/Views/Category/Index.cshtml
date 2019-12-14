@@ -1,0 +1,68 @@
+﻿@model IEnumerable<NewsWebsite.Data.Entities.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function Update(categoryName, id) {
+        document.getElementById("btnSave").setAttribute("value", "Lưu");
+        document.getElementById("btnSave").setAttribute("class", "btn btn-warning");
+        document.getElementById("txtCategoryName").value = categoryName;
+        document.getElementById("frmCategory").action = "/Admin/Category/Update";
+        var action = document.createElement("input");
+        action.setAttribute("type", "hidden");
+        action.setAttribute("name", "Id");
+        document.getElementById("frmCategory").appendChild(action);
+        document.getElementsByName("Id")[0].setAttribute("value", id);
+    }
+</script>
+
+<div style="margin-left:5px">
+    <h2>Quản lý danh mục</h2>
+
+    @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { id = "frmCategory" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <br />
+            @Html.ValidationSummary()
+
+            <div class="form-group">
+                <label>Tên danh mục</label>
+                <div class="col-md-10">
+                    <input id="txtCategoryName" type="text" class="form-control" name="CategoryName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input id="btnSave" type="submit" value="Thêm" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+    <br />
+
+    <table class="table table-hover table-light">
+        <tr>
+            <th>ID</th>
+            <th>Tên danh mục</th>
+            <th>Người tạo</th>
+            <th>Ngày tạo</th>
+            <th colspan="2">Chức năng</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CategoryName</td>
+                <td>@item.CreatedBy</td>
+                <td>@item.CreatedTime</td>
+                <td><button class="btn btn-warning" onclick='Update("@item.CategoryName", @item.Id)'>Sửa</button></td>
+                <td><a class="btn btn-danger text-white" href="/Admin/Category/Delete/@item.Id">Xóa</a></td>
+            </tr>
+        }
+    </table>
+</div>

@@ -38,7 +38,16 @@ namespace NewsWebsite.Data.DAL
                 var item = context.Categories.Where(i => i.Id == model.Id).FirstOrDefault();
 
                 //Set value item with value from model
-                
+                item.CategoryName = model.CategoryName;
+                item.Level = model.Level;
+                item.ParentId = model.ParentId;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifiedTime = model.ModifiedTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
                 //Save change to database
                 context.SaveChanges();
                 return true;
@@ -57,8 +66,17 @@ namespace NewsWebsite.Data.DAL
                 var category = new Category();
 
                 //Set value for item with value from model
-                
 
+                category.CategoryName = model.CategoryName;
+                category.Level = model.Level;
+                category.ParentId = model.ParentId;
+                category.CreatedBy = model.CreatedBy;
+                category.CreatedTime = model.CreatedTime;
+                category.ModifiedBy = model.ModifiedBy;
+                category.ModifiedTime = model.ModifiedTime;
+                category.IsDeleted = model.IsDeleted;
+                category.DeletedBy = model.DeletedBy;
+                category.DeletedTime = model.DeletedTime;
                 //Add item to entity
                 context.Categories.Add(category);
                 //Save to database
