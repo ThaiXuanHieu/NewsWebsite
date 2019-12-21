@@ -9,7 +9,7 @@ namespace NewsWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        PostService postService = new PostService();
+        
 
         public ActionResult Index()
         {

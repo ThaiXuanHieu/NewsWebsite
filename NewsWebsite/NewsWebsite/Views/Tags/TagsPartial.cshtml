@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<NewsWebsite.Data.Entities.Post>
 
-@foreach (var item in Model)
-{
-    <li><a href="#">@item.Tags</a></li>
-}
+<div class="aside-widget">
+    <div class="tags-widget">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li><a href="#">@item.Tags</a></li>
+            }
+        </ul>
+    </div>
+</div>
+
 

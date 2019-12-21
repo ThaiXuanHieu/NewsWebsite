@@ -83,6 +83,24 @@ namespace NewsWebsite.Areas.Admin.Controllers
             }
             return RedirectToAction("Index", "Category");
         }
+
+        public ActionResult Delete(long id)
+        {
+            var action = categoryService.Delete(id);
+            var data = categoryService.GetList();
+            if(data == null)
+            {
+                return HttpNotFound();
+            }
+            if(action)
+            {
+                return RedirectToAction("Index", "Category");
+            }
+            else
+            {
+                return Json("Xóa thất bại", JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 
 
