@@ -166,10 +166,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LatestPostsController.cs" />
-    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3412,9 +3409,9 @@
     <Content Include="Content\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Views\LatestPosts\LatestPostsPartial.cshtml" />
-    <Content Include="Views\Categories\CategoriesPartial.cshtml" />
-    <Content Include="Views\Tags\TagsPartial.cshtml" />
+    <Content Include="Views\Home\LatestPostsPartial.cshtml" />
+    <Content Include="Views\Home\CategoriesPartial.cshtml" />
+    <Content Include="Views\Home\TagsPartial.cshtml" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\plugins\wsc\README.md" />

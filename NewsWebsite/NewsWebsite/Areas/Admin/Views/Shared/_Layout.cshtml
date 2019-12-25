@@ -301,6 +301,13 @@
                     </ul>
 
                 </nav>
+                @if (TempData["AlertMessage"] != null)
+                {
+                    <div id="alertBox" class="alert @TempData["AlertType"] hide">
+                        @TempData["AlertMessage"]
+                    </div>
+                }
+
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
                 @RenderBody()
