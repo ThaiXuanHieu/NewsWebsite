@@ -35,6 +35,8 @@ namespace NewsWebsite.Data.DAL
         {
             var post = context.Posts
                .Where(i => i.IsDeleted == false || i.IsDeleted.Equals(null))
+               .OrderByDescending(i => i.CreatedTime)
+               .Take(6)
                .ToList();
             return post;
         }

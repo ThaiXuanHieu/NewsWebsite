@@ -31,13 +31,13 @@
     <!-- post -->
     <div class="col-md-6">
         <div class="post post-thumb">
-            <a class="post-img" href="blog-post.html"><img src="@Url.Content("~/Assets/img/" + item.Image)" height="300" alt=""></a>
+            <a class="post-img" href="/SinglePost/Index/@item.Id"><img src="@Url.Content("~/Assets/img/" + item.Image)" height="300" alt=""></a>
             <div class="post-body">
                 <div class="post-meta">
                     <a class="post-category cat-2" href="category.html">@str</a>
                     <span class="post-date">@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</span>
                 </div>
-                <h3 class="post-title"><a href="blog-post.html">@item.Title</a></h3>
+                <h3 class="post-title"><a href="/SinglePost/Index/@item.Id">@item.Title</a></h3>
             </div>
         </div>
     </div>
