@@ -22,13 +22,6 @@ namespace NewsWebsite.Controllers
             return PartialView(model);
         }
 
-        public PartialViewResult LatestPostsPartial()
-        {
-            PostService postService = new PostService();
-            var model = postService.GetList();
-            return PartialView(model);
-        }
-
         public PartialViewResult TagsPartial()
         {
             PostService postService = new PostService();

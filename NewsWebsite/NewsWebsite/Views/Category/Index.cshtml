@@ -1,0 +1,167 @@
+﻿@model IEnumerable<NewsWebsite.Data.Entities.Post>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var mostReadPosts = (List<NewsWebsite.Data.Entities.Post>)ViewBag.MostReadPost;
+    
+}
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="page-header-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>@ViewBag.CategoryName</li>
+                </ul>
+                <h1>@ViewBag.CategoryName</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <!-- post -->
+                    <div class="col-md-12">
+                        <div class="post post-thumb">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assets/img/post-1.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-meta">
+                                    <a class="post-category cat-2" href="#">JavaScript</a>
+                                    <span class="post-date">March 27, 2018</span>
+                                </div>
+                                <h3 class="post-title"><a href="blog-post.html">Javascript : Prototype vs Class</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assets/img/post-4.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-meta">
+                                    <a class="post-category cat-2" href="#">JavaScript</a>
+                                    <span class="post-date">March 27, 2018</span>
+                                </div>
+                                <h3 class="post-title"><a href="blog-post.html">Chrome Extension Protects Against JavaScript-Based CPU Side-Channel Attacks</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+                    <!-- post -->
+                    <div class="col-md-6">
+                        <div class="post">
+                            <a class="post-img" href="blog-post.html"><img src="~/Assets/img/post-6.jpg" alt=""></a>
+                            <div class="post-body">
+                                <div class="post-meta">
+                                    <a class="post-category cat-2" href="#">JavaScript</a>
+                                    <span class="post-date">March 27, 2018</span>
+                                </div>
+                                <h3 class="post-title"><a href="blog-post.html">Why Node.js Is The Coolest Kid On The Backend Development Block!</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /post -->
+
+                    <div class="clearfix visible-md visible-lg"></div>
+
+                    <!-- ad -->
+                    <div class="col-md-12">
+                        <div class="section-row">
+                            <a href="#">
+                                <img class="img-responsive center-block" src="~/Assets/img/ad-2.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- ad -->
+                    <!-- post -->
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-12">
+                            <div class="post post-row">
+                                <a class="post-img" href="@item.Alias"><img src="@Url.Content("/Assets/img/" + item.Image)" alt=""></a>
+                                <div class="post-body">
+                                    <div class="post-meta">
+                                        <a class="post-category cat-2" href="#">@ViewBag.CategoryName</a>
+                                        <span class="post-date">@item.CreatedTime</span>
+                                    </div>
+                                    <h3 class="post-title"><a href="@item.Alias">@item.Title</a></h3>
+                                    <p>@item.Summary</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /post -->
+                    }
+
+
+                    <div class="col-md-12">
+                        <div class="section-row">
+                            <button class="primary-button center-block">Load More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- ad -->
+                <div class="aside-widget text-center">
+                    <a href="#" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="~/Assets/img/ad-1.jpg" alt="">
+                    </a>
+                </div>
+                <!-- /ad -->
+                <!-- post widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Đọc nhiều nhất</h2>
+                    </div>
+
+                    @foreach (var item in mostReadPosts)
+                    {
+                        <div class="post post-widget">
+                            <a class="post-img" href="@item.Alias"><img src="@Url.Content("~/Assets/img/" + item.Image)" alt=""></a>
+                            <div class="post-body">
+                                <h3 class="post-title"><a href="@item.Alias">@item.Title</a></h3>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!-- /post widget -->
+                <!-- catagories -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Catagories</h2>
+                    </div>
+                    <div class="category-widget">
+                        <ul>
+                            @Html.Action("CategoriesPartial", "Home")
+                        </ul>
+                    </div>
+                </div>
+                <!-- /catagories -->
+                <!-- tags -->
+                <div class="aside-widget">
+                    <div class="tags-widget">
+                        <ul>
+                            @Html.Action("TagsPartial", "Home")
+                        </ul>
+                    </div>
+                </div>
+                <!-- /tags -->
+
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /section -->

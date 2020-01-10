@@ -1,0 +1,8 @@
+﻿@model IEnumerable<NewsWebsite.Data.Entities.Category>
+
+@foreach (var item in Model)
+{
+    var url = "/danh-muc/" + item.MetaTitle;
+    <li class="cat-1"><a href="@url">@item.CategoryName</a></li>
+
+}

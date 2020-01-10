@@ -64,7 +64,10 @@ namespace NewsWebsite.Service
             return categoryDAL.GetById(id);
         }
 
-        
+        public Category GetByMetaTitle(string metatitle)
+        {
+            return categoryDAL.GetByMetaTitle(metatitle);
+        }
 
         public IEnumerable<Category> GetList()
         {

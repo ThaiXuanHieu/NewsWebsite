@@ -166,8 +166,9 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SinglePostController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +183,7 @@
     <Content Include="Areas\Admin\Assets\js\demo\chart-bar-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-pie-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\datatables-demo.js" />
+    <Content Include="Assets\img\logo.png" />
     <Content Include="Content\ckeditor\adapters\jquery.js" />
     <Content Include="Content\ckeditor\build-config.js" />
     <Content Include="Content\ckeditor\ckeditor.js" />
@@ -2814,7 +2816,6 @@
     <Content Include="Assets\img\ad-2.jpg" />
     <Content Include="Assets\img\author.png" />
     <Content Include="Assets\img\avatar.png" />
-    <Content Include="Assets\img\logo.png" />
     <Content Include="Assets\img\post-1.jpg" />
     <Content Include="Assets\img\post-2.jpg" />
     <Content Include="Assets\img\post-3.jpg" />
@@ -3366,7 +3367,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
@@ -3410,9 +3410,9 @@
     <Content Include="Content\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Views\Home\LatestPostsPartial.cshtml" />
-    <Content Include="Views\Home\CategoriesPartial.cshtml" />
-    <Content Include="Views\Home\TagsPartial.cshtml" />
+    <Content Include="Views\Post\LatestPostsPartial.cshtml" />
+    <Content Include="Views\Shared\CategoriesPartial.cshtml" />
+    <Content Include="Views\Shared\TagsPartial.cshtml" />
     <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Scripts\ckeditor\README.md" />
     <Content Include="Scripts\ckeditor\plugins\wsc\README.md" />
@@ -3424,7 +3424,9 @@
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
     <Content Include="Scripts\ckeditor\.idea\ckeditor-releases.iml" />
-    <Content Include="Views\SinglePost\Index.cshtml" />
+    <Content Include="Views\Post\MostReadPostsPartial.cshtml" />
+    <Content Include="Views\Post\Index.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NewsWebsite.Core\NewsWebsite.Core.csproj">

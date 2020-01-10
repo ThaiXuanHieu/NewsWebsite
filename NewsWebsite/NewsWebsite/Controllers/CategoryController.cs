@@ -7,16 +7,17 @@ using System.Web.Mvc;
 
 namespace NewsWebsite.Controllers
 {
-    public class SinglePostController : Controller
+    public class CategoryController : Controller
     {
-        // GET: SinglePost
-        public ActionResult Index(long id)
+        // GET: Category
+        public ActionResult Index(string metatitle)
         {
             PostService postService = new PostService();
             CategoryService categoryService = new CategoryService();
-            var data = postService.GetById(id);
-            var category = categoryService.GetById(Convert.ToInt64(data.CategoryId));
+            var category = categoryService.GetByMetaTitle(metatitle);
+            var data = postService.GetByCategoryId(category.Id);
             ViewBag.CategoryName = category.CategoryName;
+            ViewBag.MostReadPost = postService.GetList();
             return View(data);
         }
     }

@@ -23,6 +23,16 @@ namespace NewsWebsite.Data.DAL
             return post;
         }
 
+        public IEnumerable<Post> GetByCategoryId(long id)
+        {
+            var post = context.Posts
+               .Where(i => i.CategoryId == id || i.IsDeleted.Equals(null))
+               .OrderByDescending(i => i.CreatedTime)
+               .Take(6)
+               .ToList();
+            return post;
+        }
+
         public Post GetByAlias(string alias)
         {
             var post = context.Posts

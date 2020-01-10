@@ -20,7 +20,14 @@ namespace NewsWebsite.Data.DAL
             return category;
         }
 
-        
+        public Category GetByMetaTitle(string metatitle)
+        {
+            //Get from database
+            var category = context.Categories
+                .Where(i => i.MetaTitle == metatitle && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
+                .FirstOrDefault();
+            return category;
+        }
 
         public IEnumerable<Category> GetList()
         {

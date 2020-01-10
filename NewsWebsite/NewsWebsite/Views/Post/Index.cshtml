@@ -1,0 +1,97 @@
+﻿@model NewsWebsite.Data.Entities.Post
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var mostReadPosts = (List<NewsWebsite.Data.Entities.Post>)ViewBag.MostReadPost;
+}
+
+<!-- Page Header -->
+<div id="post-header" class="page-header">
+    <div class="background-img" style="background-image: url('@Url.Content("~/Assets/img/" + Model.Image)');"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="post-meta">
+                    <a class="post-category cat-2" href="category.html">@ViewBag.CategoryName</a>
+                    <span class="post-date">@Model.CreatedTime</span>
+                </div>
+                <h1>@Model.Title</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+<!-- section -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Post content -->
+            <div class="col-md-8">
+                <div class="section-row sticky-container">
+                    <div class="main-post">
+                        @Html.Raw(Model.Content)
+                    </div>
+                </div>
+
+                <!-- ad -->
+                <div class="section-row text-center">
+                    <a href="#" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="./img/ad-2.jpg" alt="">
+                    </a>
+                </div>
+                <!-- ad -->
+                
+            </div>
+            <!-- /Post content -->
+            <!-- aside -->
+            <div class="col-md-4">
+                <!-- ad -->
+                <div class="aside-widget text-center">
+                    <a href="#" style="display: inline-block;margin: auto;">
+                        <img class="img-responsive" src="./img/ad-1.jpg" alt="">
+                    </a>
+                </div>
+                <!-- /ad -->
+                <!-- post widget -->
+                <div class="aside-widget">
+                    <div class="section-title">
+                        <h2>Đọc nhiều nhất</h2>
+                    </div>
+
+                    @foreach (var item in mostReadPosts)
+                    {
+                        <div class="post post-widget">
+                            <a class="post-img" href="@item.Alias"><img src="@Url.Content("~/Assets/img/" + item.Image)" alt=""></a>
+                            <div class="post-body">
+                                <h3 class="post-title"><a href="@item.Alias">@item.Title</a></h3>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- /post widget -->
+                    <!-- catagories -->
+                    <div class="aside-widget">
+                        <div class="section-title">
+                            <h2>Catagories</h2>
+                        </div>
+                        <div class="category-widget">
+                            <ul>
+                                @Html.Action("CategoriesPartial", "Home")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /catagories -->
+                    <!-- tags -->
+                    @Html.Action("TagsPartial", "Home")
+                    <!-- /tags -->
+
+                </div>
+                <!-- /aside -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->

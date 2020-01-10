@@ -64,6 +64,11 @@ namespace NewsWebsite.Service
             return postDAL.GetById(id);
         }
 
+        public IEnumerable<Post> GetByCategoryId(long id)
+        {
+            return postDAL.GetByCategoryId(id);
+        }
+
         public IEnumerable<Post> GetBySearchString(string searchString)
         {
             if(string.IsNullOrEmpty(searchString))
