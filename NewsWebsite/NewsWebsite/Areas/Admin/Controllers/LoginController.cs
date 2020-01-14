@@ -1,4 +1,5 @@
 ﻿using NewsWebsite.Core;
+using NewsWebsite.Data.Entities;
 using NewsWebsite.Service;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
 
             return View("Index");
         }
+
         public ActionResult Logout()
         {
             Session.Clear();

@@ -32,9 +32,10 @@
 
 </head>
 <body>
-
+    
     <!-- Header -->
     <header id="header">
+
         <!-- Nav -->
         <div id="nav">
             <!-- Main Nav -->
@@ -42,23 +43,30 @@
                 <div class="container">
                     <!-- logo -->
                     <div class="nav-logo">
-                        <a href="/Home/Index" class="logo"><img src="~/Assets/img/logo.png" alt=""></a>
+                        <a href="/Home/Index" class="logo">
+                            <img src="~/Assets/img/logo-website.png" />
+                        </a>
                     </div>
                     <!-- /logo -->
                     <!-- nav -->
                     <ul class="nav-menu nav navbar-nav">
-                        <li><a href="category.html">News</a></li>
-                        <li><a href="category.html">Popular</a></li>
                         @Html.Action("CategoriesPartial", "Home")
-                        @*<li class="cat-1"><a href="category.html">Web Design</a></li>
-                        <li class="cat-2"><a href="category.html">JavaScript</a></li>
-                        <li class="cat-3"><a href="category.html">Css</a></li>
-                        <li class="cat-4"><a href="category.html">Jquery</a></li>*@
+
+                        <li class="cat-1"><a href="/tai-khoan/">Đăng nhập</a></li>
                     </ul>
                     <!-- /nav -->
                 </div>
             </div>
             <!-- /Main Nav -->
+        </div>
+        <div style="height:20px; float:right; margin-right:20px">
+            @if (Session["FullName"] != null)
+            {
+                <ul>
+                    <li style="display:inline">Xin chào : @Session["FullName"]</li>
+                    <li style="display:inline">@Html.ActionLink("Đăng xuất", "Logout", "Account")</li>
+                </ul>
+            }
         </div>
     </header>
     <!-- /Header -->
@@ -72,19 +80,9 @@
                 <div class="col-md-5">
                     <div class="footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html" class="logo"><img src="~/Assets/img/logo.png" alt=""></a>
-                        </div>
-                        <ul class="footer-nav">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Advertisement</a></li>
-                        </ul>
-                        <div class="footer-copyright">
-                            <span>
-                                &copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </span>
+                            <a href="index.html" class="logo">
+                                <img src="~/Assets/img/logo-website.png" />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -93,17 +91,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="footer-widget">
-                                <h3 class="footer-title">About Us</h3>
+                                <h3 class="footer-title">Về chúng tôi</h3>
                                 <ul class="footer-links">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="#">Join Us</a></li>
-                                    <li><a href="contact.html">Contacts</a></li>
+                                    <li><a href="about.html">Về chúng tôi</a></li>
+                                    <li><a href="#">Tham gia</a></li>
+                                    <li><a href="contact.html">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="footer-widget">
-                                <h3 class="footer-title">Catagories</h3>
+                                <h3 class="footer-title">Danh mục</h3>
                                 <ul class="footer-links">
                                     @Html.Action("CategoriesPartial", "Home")
                                 </ul>
@@ -114,10 +112,10 @@
 
                 <div class="col-md-3">
                     <div class="footer-widget">
-                        <h3 class="footer-title">Join our Newsletter</h3>
+                        <h3 class="footer-title">Tham gia viết bài</h3>
                         <div class="footer-newsletter">
                             <form>
-                                <input class="input" type="email" name="newsletter" placeholder="Enter your email">
+                                <input class="input" type="email" name="newsletter" placeholder="Nhập Email">
                                 <button class="newsletter-btn"><i class="fa fa-paper-plane"></i></button>
                             </form>
                         </div>

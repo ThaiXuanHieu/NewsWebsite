@@ -38,5 +38,73 @@ namespace NewsWebsite.Service
             }
 
         }
+
+        public bool Create(User model)
+        {
+            UserDAL userDAL = new UserDAL();
+            try
+            {
+                if(model == null)
+                {
+                    return false;
+                }
+                var create = userDAL.Create(model);
+                return create;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool CreateForFacebook(User model)
+        {
+            UserDAL userDAL = new UserDAL();
+            try
+            {
+                if (model == null)
+                {
+                    return false;
+                }
+                var create = userDAL.CreateForFacebook(model);
+                return create;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool CkeckUserName(string username)
+        {
+            UserDAL userDAL = new UserDAL();
+            if (String.IsNullOrEmpty(username))
+            {
+                return false;
+            }
+            var count = userDAL.GetByUsername(username);
+            if(count != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CkeckEmail(string email)
+        {
+            UserDAL userDAL = new UserDAL();
+            if (String.IsNullOrEmpty(email))
+            {
+                return false;
+            }
+            var count = userDAL.GetByEmail(email);
+            if (count != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

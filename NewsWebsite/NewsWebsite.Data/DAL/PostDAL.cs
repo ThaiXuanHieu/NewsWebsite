@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PagedList.Mvc;
-using PagedList;
 
 namespace NewsWebsite.Data.DAL
 {
@@ -26,9 +24,8 @@ namespace NewsWebsite.Data.DAL
         public IEnumerable<Post> GetByCategoryId(long id)
         {
             var post = context.Posts
-               .Where(i => i.CategoryId == id || i.IsDeleted.Equals(null))
+               .Where(i => i.CategoryId == id)
                .OrderByDescending(i => i.CreatedTime)
-               .Take(6)
                .ToList();
             return post;
         }

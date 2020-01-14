@@ -24,8 +24,8 @@ namespace NewsWebsite.Controllers
 
         public PartialViewResult TagsPartial()
         {
-            PostService postService = new PostService();
-            var model = postService.GetList();
+            CategoryService categoryService = new CategoryService();
+            var model = categoryService.GetList();
             return PartialView(model);
         }
     }

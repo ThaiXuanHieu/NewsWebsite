@@ -1,11 +1,11 @@
-﻿@model IEnumerable<NewsWebsite.Data.Entities.Post>
+﻿@model IEnumerable<NewsWebsite.Data.Entities.Category>
 
 <div class="aside-widget">
     <div class="tags-widget">
         <ul>
             @foreach (var item in Model)
             {
-                <li><a href="#">@item.Tags</a></li>
+                <li><a href="#">@item.CategoryName</a></li>
             }
         </ul>
     </div>

@@ -21,6 +21,15 @@ namespace NewsWebsite.Data.DAL
             return user;
         }
 
+        public User GetByEmail(string email)
+        {
+            //Get from database
+            var user = context.Users
+                .Where(i => i.Email == email && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
+                .FirstOrDefault();
+            return user;
+        }
+
         public bool Update(User model)
         {
             try
@@ -89,6 +98,44 @@ namespace NewsWebsite.Data.DAL
                 return true;
             }
             catch
+            {
+                return false;
+            }
+        }
+
+        public bool CreateForFacebook(User model)
+        {
+            var user = context.Users.SingleOrDefault(x => x.Id == model.Id);
+            if(user == null)
+            {
+                //Initialization empty item
+                var item = new User();
+
+                //Set value for item with value from model
+                item.Username = model.Username;
+                item.PasswordEncrypted = model.PasswordEncrypted;
+                item.PasswordSalt = model.PasswordSalt;
+                item.FirstName = model.FirstName;
+                item.LastName = model.LastName;
+                item.Sex = model.Sex;
+                item.DateOfBirth = model.DateOfBirth;
+                item.PhoneNumber = model.PhoneNumber;
+                item.Email = model.Email;
+                item.Address = model.Address;
+                item.CreatedBy = model.CreatedBy;
+                item.CreatedTime = model.CreatedTime;
+                item.ModifiedBy = model.ModifiedBy;
+                item.ModifiedTime = model.ModifiedTime;
+                item.IsDeleted = model.IsDeleted;
+                item.DeletedBy = model.DeletedBy;
+                item.DeletedTime = model.DeletedTime;
+                //Add item to entity
+                context.Users.Add(item);
+                //Save to database
+                context.SaveChanges();
+                return true;
+            }
+            else
             {
                 return false;
             }
