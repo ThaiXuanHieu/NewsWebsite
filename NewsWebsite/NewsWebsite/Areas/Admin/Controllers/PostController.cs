@@ -116,15 +116,11 @@ namespace NewsWebsite.Areas.Admin.Controllers
         public ActionResult DeletePost(long id)
         {
             var action = postService.Delete(id);
-            var data = postService.GetList();
-            if(data == null)
-            {
-                return HttpNotFound();
-            }
+
             if(action)
             {
                 SetAlert("Xóa thành công", "success");
-                return View("Index", data);
+                return RedirectToAction("Index");
             }
             return View("Index");
         }
@@ -137,6 +133,17 @@ namespace NewsWebsite.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             return View("Index", data);
+        }
+
+        public JsonResult ListPost(string searchString)
+        {
+            var data = new PostService().GetListTitle(searchString);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet
+            );
         }
     }
 }

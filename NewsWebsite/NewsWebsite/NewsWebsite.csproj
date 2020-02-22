@@ -179,14 +179,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assets\css\jquery-ui.css" />
     <Content Include="Areas\Admin\Assets\css\sb-admin-2.css" />
     <Content Include="Areas\Admin\Assets\css\sb-admin-2.min.css" />
+    <Content Include="Areas\Admin\Assets\css\style.css" />
     <Content Include="Areas\Admin\Assets\img\img-profile.png" />
     <Content Include="Areas\Admin\Assets\img\undraw_posting_photo.svg" />
+    <Content Include="Areas\Admin\Assets\js\controller\BaseController.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-area-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-bar-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-pie-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\datatables-demo.js" />
+    <Content Include="Areas\Admin\Assets\js\jquery-1.12.4.js" />
+    <Content Include="Areas\Admin\Assets\js\jquery-ui.js" />
     <Content Include="Assets\img\logo-website.png" />
     <Content Include="Content\ckeditor\adapters\jquery.js" />
     <Content Include="Content\ckeditor\build-config.js" />

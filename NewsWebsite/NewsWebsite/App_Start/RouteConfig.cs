@@ -14,6 +14,13 @@ namespace NewsWebsite
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem",
+                defaults: new { controller = "Post", action = "SearchHandle", id = UrlParameter.Optional },
+                namespaces: new string[] { "NewsWebsite.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Account",
                 url: "tai-khoan",
                 defaults: new { controller = "Account", action = "Index", id = UrlParameter.Optional },
@@ -25,7 +32,9 @@ namespace NewsWebsite
                 url: "{alias}",
                 defaults: new { controller = "Post", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "NewsWebsite.Controllers" }
-            );  
+            );
+
+            
 
             routes.MapRoute(
                 name: "Category",

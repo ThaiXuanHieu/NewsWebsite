@@ -56,6 +56,15 @@ namespace NewsWebsite.Data.DAL
             return post;
         }
 
+        public IEnumerable<string> GetListTitle(string searchString)
+        {
+            var post = context.Posts
+                        .Where(i => i.Title.Contains(searchString) && (i.IsDeleted == false || i.IsDeleted.Equals(null)))
+                        .Select(i => i.Title)
+                        .ToList();
+            return post;
+        }
+
         public bool Update(Post model)
         {
             try
