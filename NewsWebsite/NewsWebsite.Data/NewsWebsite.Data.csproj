@@ -51,15 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\CategoryDAL.cs" />
-    <Compile Include="DAL\CustomerDAL.cs" />
-    <Compile Include="DAL\FunctionDAL.cs" />
-    <Compile Include="DAL\PostCommentDAL.cs" />
     <Compile Include="DAL\PostDAL.cs" />
-    <Compile Include="DAL\PostRateDAL.cs" />
-    <Compile Include="DAL\RoleDAL.cs" />
-    <Compile Include="DAL\RoleFunctionRelationshipDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
-    <Compile Include="DAL\UserRoleRelationshipDAL.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="DefaultDbContext.cs" />
