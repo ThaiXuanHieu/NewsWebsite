@@ -42,24 +42,20 @@ namespace NewsWebsite.Areas.Admin.Controllers
                     var action = postService.Create(model);
                     if (action)
                     {
-                        SetAlert("Thêm thành công", "success");
                         return Redirect("/Admin/Post/Index");
                     }
                     else
                     {
-                        SetAlert("Thêm thất bại", "danger");
                         ModelState.AddModelError("", "Thêm thất bại");
                     }
                 }
                 catch
                 {
-                    SetAlert("Thêm thất bại", "danger");
                     ModelState.AddModelError("", "Thêm thất bại");
                 }
             }
             else
             {
-                SetAlert("Thêm thất bại", "danger");
                 ModelState.AddModelError("", "Thêm thất bại");
             }
             SetViewBag(model.Id);
@@ -89,24 +85,20 @@ namespace NewsWebsite.Areas.Admin.Controllers
                     var action = postService.Update(model);
                     if (action)
                     {
-                        SetAlert("Sửa thành công", "success");
                         return Redirect("/Admin/Post/Index");
                     }
                     else
                     {
-                        SetAlert("Sửa thất bại", "danger");
                         ModelState.AddModelError("", "Sửa thất bại");
                     }
                 }
                 catch
                 {
-                    SetAlert("Sửa thất bại", "danger");
                     ModelState.AddModelError("", "Sửa thất bại");
                 }
             }
             else
             {
-                SetAlert("Sửa thất bại", "danger");
                 ModelState.AddModelError("", "Sửa thất bại");
             }
             SetViewBag(model.Id);
@@ -119,7 +111,6 @@ namespace NewsWebsite.Areas.Admin.Controllers
 
             if(action)
             {
-                SetAlert("Xóa thành công", "success");
                 return RedirectToAction("Index");
             }
             return View("Index");
@@ -133,17 +124,6 @@ namespace NewsWebsite.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             return View("Index", data);
-        }
-
-        public JsonResult ListPost(string searchString)
-        {
-            var data = new PostService().GetListTitle(searchString);
-            return Json(new
-            {
-                data = data,
-                status = true
-            }, JsonRequestBehavior.AllowGet
-            );
         }
     }
 }

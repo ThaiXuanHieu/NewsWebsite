@@ -16,7 +16,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
         {
             if (Session["UserId"] != null)
             {
-                return Redirect("/Home");
+                return Redirect("/Admin/Home/Index");
             }
             return View();
         }
@@ -38,7 +38,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
                     Session["UserId"] = login.Id;
                     Session["Username"] = login.Username;
                     Session["Fullname"] = login.LastName + " " + login.FirstName;
-                    return Redirect("/Admin/Home");
+                    return Redirect("/Admin/Home/Index");
                 }
             }
             else
@@ -52,7 +52,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return Redirect("/Admin/Login");
+            return Redirect("/Admin/Login/Index");
         }
     }
 }

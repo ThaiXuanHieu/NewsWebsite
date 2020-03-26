@@ -58,25 +58,6 @@ namespace NewsWebsite.Service
             }
         }
 
-        public bool CreateForFacebook(User model)
-        {
-            UserDAL userDAL = new UserDAL();
-            try
-            {
-                if (model == null)
-                {
-                    return false;
-                }
-                var create = userDAL.CreateForFacebook(model);
-                return create;
-            }
-            catch (Exception)
-            {
-
-                return false;
-            }
-        }
-
         public bool CkeckUserName(string username)
         {
             UserDAL userDAL = new UserDAL();

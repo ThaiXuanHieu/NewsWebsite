@@ -21,20 +21,6 @@ namespace NewsWebsite
             );
 
             routes.MapRoute(
-                name: "Search",
-                url: "tim-kiem",
-                defaults: new { controller = "Post", action = "SearchHandle", id = UrlParameter.Optional },
-                namespaces: new string[] { "NewsWebsite.Controllers" }
-            );
-
-            routes.MapRoute(
-                name: "Account",
-                url: "tai-khoan",
-                defaults: new { controller = "Account", action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "NewsWebsite.Controllers" }
-            );
-
-            routes.MapRoute(
                 name: "Category",
                 url: "danh-muc/{metatitle}",
                 defaults: new { controller = "Category", action = "Index", id = UrlParameter.Optional },

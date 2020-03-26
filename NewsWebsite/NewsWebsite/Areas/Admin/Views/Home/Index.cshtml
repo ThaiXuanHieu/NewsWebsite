@@ -28,6 +28,7 @@
                 <th>Thời gian</th>
                 <th>Danh mục</th>
                 <th>Trạng thái</th>
+                <th><input type="checkbox" /> Đánh dấu</th>
                 <th colspan="2">Chức năng</th>
             </tr>
         </thead>
@@ -41,9 +42,31 @@
                     <td>@Convert.ToDateTime(@item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
                     <td>@item.CategoryId</td>
                     <td>@item.PostStatus</td>
+                    <td><input type="checkbox" /></td>
                     <td><a href="/Admin/Post/EditPost/@item.Id" class="btn btn-warning">Sửa</a></td>
-                    <td><a href="/Admin/Post/DeletePost/@item.Id" class="btn btn-danger">Xóa</a></td>
+                    <td><a href="#confirm-modal-@item.Id" data-toggle="modal" class="btn btn-danger">Xóa</a></td>
                 </tr>
+                <!-- Modal -->
+                <div class="modal fade" id="confirm-modal-@item.Id" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Xóa bản ghi này ?
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/Admin/Post/DeletePost/@item.Id" class="btn btn-primary">Đồng ý</a>
+                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
         </tbody>
     </table>

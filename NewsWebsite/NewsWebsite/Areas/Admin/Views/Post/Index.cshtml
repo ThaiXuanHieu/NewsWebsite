@@ -29,6 +29,7 @@
                 <th>Thời gian</th>
                 <th>Danh mục</th>
                 <th>Trạng thái</th>
+                <th><input type="checkbox" /> Đánh dấu</th>
                 <th colspan="2">Chức năng</th>
             </tr>
         </thead>
@@ -42,6 +43,7 @@
                     <td>@Convert.ToDateTime(item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
                     <td>@item.CategoryId</td>
                     <td>@item.PostStatus</td>
+                    <td><input type="checkbox" /></td>
                     <td><a href="/Admin/Post/EditPost/@item.Id" class="btn btn-warning">Sửa</a></td>
                     <td><a href="#delete-modal-@item.Id" data-toggle="modal" class="btn btn-danger">Xóa</a></td>
                 </tr>

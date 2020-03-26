@@ -20,7 +20,6 @@
             <div class="col-lg-6">
                 <h4>Đăng nhập</h4>
                 <form action="/Account/Login" method="post" class="form-group">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <label>Tài khoản : </label>
                     <input type="text" name="Username" placeholder="Tài khoản" class="form-control" /><br />
                     <label>Mật khẩu : </label>
