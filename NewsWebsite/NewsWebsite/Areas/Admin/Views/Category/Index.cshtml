@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 
 <script>
@@ -32,7 +33,7 @@
             <div class="form-group">
                 <label>Tên danh mục</label>
                 <div class="col-md-10">
-                    <input id="txtCategoryName" type="text" class="form-control" name="CategoryName" required/>
+                    <input id="txtCategoryName" type="text" class="form-control" name="CategoryName" required />
                 </div>
             </div>
 
@@ -47,7 +48,7 @@
 
     <table class="table table-hover table-light">
         <tr>
-            <th>ID</th>
+            <th>STT</th>
             <th>Tên danh mục</th>
             <th>Người tạo</th>
             <th>Ngày tạo</th>
@@ -57,7 +58,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Id</td>
+                <td>@stt</td>
                 <td>@item.CategoryName</td>
                 <td>@item.CreatedBy</td>
                 <td>@item.CreatedTime</td>
@@ -65,6 +66,7 @@
                 <td><button class="btn btn-warning" onclick='Update("@item.CategoryName", @item.Id)'>Sửa</button></td>
                 <td><a class="btn btn-danger text-white" data-toggle="modal" href="#delete-modal-@item.Id">Xóa</a></td>
             </tr>
+            stt += 1;
             <!-- Modal -->
             <div class="modal fade" id="delete-modal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

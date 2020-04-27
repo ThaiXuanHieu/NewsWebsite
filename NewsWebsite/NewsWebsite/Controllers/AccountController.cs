@@ -25,18 +25,30 @@ namespace NewsWebsite.Controllers
 
             if (ModelState.IsValid)
             {
-                var action = userService.LoginByCredential(model.Username, model.Password);
+                var login = userService.LoginByCredential(model.Username, model.Password);
 
-                if (action == null)
+                if (login == null)
                 {
                     ModelState.AddModelError("LoginError", "Đăng nhập không thành công");
                 }
                 else
                 {
-                    Session["UserId"] = action.Id;
-                    Session["Username"] = action.Username;
-                    Session["Fullname"] = action.LastName + " " + action.FirstName;
-                    return Redirect("/Home/Index");
+                    
+                    var checkRole = userService.CheckRole(login);
+                    if(checkRole == true)
+                    {
+                        Session["UserId"] = login.Id;
+                        Session["Username"] = login.Username;
+                        Session["Fullname"] = login.LastName + " " + login.FirstName;
+                        return Redirect("/Admin/Home/Index");
+                    }
+                    else
+                    {
+                        Session["UserId"] = login.Id;
+                        Session["Username"] = login.Username;
+                        Session["Fullname"] = login.LastName + " " + login.FirstName;
+                        return Redirect("/Home/Index");
+                    }
                 }
             }
             else
@@ -46,6 +58,8 @@ namespace NewsWebsite.Controllers
 
             return View("Index");
         }
+
+        
 
         public ActionResult Register(UserRegisterModel model)
         {

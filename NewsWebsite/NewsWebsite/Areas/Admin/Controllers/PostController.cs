@@ -27,7 +27,6 @@ namespace NewsWebsite.Areas.Admin.Controllers
 
         public ActionResult CreateHandle()
         {
-            CategoryService categoryService = new CategoryService();
             SetViewBag();
             return View();
         }
@@ -123,7 +122,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View("Index", data);
+            return View("/Admin/Post/Index", data);
         }
     }
 }

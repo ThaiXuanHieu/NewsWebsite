@@ -14,7 +14,7 @@ namespace NewsWebsite.Areas.Admin.Controllers
             if (Session["UserId"] == null || Session["UserId"].ToString() == null)
             {
                 filterContext.Result =
-                    new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { Area = "Admin", Controller = "Login", Action = "Index" }));
+                    new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { Controller = "Account", Action = "Index" }));
             }
             base.OnActionExecuting(filterContext);
         }

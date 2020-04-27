@@ -53,6 +53,7 @@
     <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\PostDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="DAL\UserRoleRelationshipDAL.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="DefaultDbContext.cs" />

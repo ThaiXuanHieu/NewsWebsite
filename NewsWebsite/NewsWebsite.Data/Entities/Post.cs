@@ -1,4 +1,4 @@
-namespace NewsWebsite.Data.Entities
+﻿namespace NewsWebsite.Data.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -14,21 +14,29 @@ namespace NewsWebsite.Data.Entities
         public long? CategoryId { get; set; }
 
         [StringLength(500)]
+        [Required]
+        [Display(Name ="Tiêu đề")]
         public string Title { get; set; }
 
         [StringLength(500)]
         public string Alias { get; set; }
 
         [Column(TypeName = "ntext")]
+        [Required]
+        [Display(Name ="Nội dung")]
         public string Content { get; set; }
 
         [StringLength(100)]
+        [Required]
+        [Display(Name ="Tổng quan")]
         public string Summary { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string Resource { get; set; }
 
         [StringLength(1000)]
+        [Display(Name ="Hình ảnh")]
         public string Image { get; set; }
 
         public long? View { get; set; }

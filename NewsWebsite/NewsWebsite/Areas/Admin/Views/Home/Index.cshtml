@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var stt = 1;
 }
 <head>
     <link href="~/Areas/Admin/Assets/css/style.css" rel="stylesheet" />
@@ -11,8 +12,13 @@
 
     <div>
         <a href="/Admin/Post/CreateHandle" class="btn btn-primary" style="margin-left:5px; float:left"><i class="fa fa-plus"></i> Tạo bài viết</a>
-        <form action="/Admin/Post/SearchHandle" method="post" class="form-group" style="float:right">
-            <input type="text" name="searchString" class="form-control" style="width:400px; float:left" />
+        <form action="/Admin/tim-kiem/" + getSearchString() method="get" class="form-group" style="float:right">
+            <input type="text" id="txtSearchString" name="searchString" class="form-control" style="width:400px; float:left" />
+            <script>
+                function getSearchString() {
+                    return document.getElementById('txtSearchString').value;
+                }
+            </script>
             <span>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tìm kiếm</button>
             </span>
@@ -22,7 +28,7 @@
     <table class="table table-hover table-light" style="margin-left:5px">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>STT</th>
                 <th>Tiêu đề</th>
                 <th>Người đăng</th>
                 <th>Thời gian</th>
@@ -36,16 +42,29 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Id</td>
+                    <td>@stt</td>
                     <td>@item.Title</td>
                     <td>@item.CreatedBy</td>
                     <td>@Convert.ToDateTime(@item.CreatedTime).ToString("HH:mm:ss dd/MM/yyyy")</td>
                     <td>@item.CategoryId</td>
-                    <td>@item.PostStatus</td>
+                    <td>
+                        @{
+                            if (item.PostStatus == 1)
+                            {
+                                @Html.Raw("<span class=\"badge badge-success\">Action</span>");
+                            }
+
+                            else
+                            {
+                                @Html.Raw("<span class=\"badge badge-danger\">Locked</span>");
+                            }
+                        }
+                    </td>
                     <td><input type="checkbox" /></td>
                     <td><a href="/Admin/Post/EditPost/@item.Id" class="btn btn-warning">Sửa</a></td>
                     <td><a href="#confirm-modal-@item.Id" data-toggle="modal" class="btn btn-danger">Xóa</a></td>
                 </tr>
+                stt += 1;
                 <!-- Modal -->
                 <div class="modal fade" id="confirm-modal-@item.Id" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">

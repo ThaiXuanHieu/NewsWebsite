@@ -39,6 +39,18 @@ namespace NewsWebsite.Service
 
         }
 
+        public bool CheckRole(User user)
+        {
+            UserRoleRelationshipDAL userRoleRelationshipDAL = new UserRoleRelationshipDAL();
+            UserRoleRelationship userRoleRelationship = userRoleRelationshipDAL.GetById(user.Id);
+            if (user.Id == userRoleRelationship.UserId && userRoleRelationship.RoleId == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         public bool Create(User model)
         {
             UserDAL userDAL = new UserDAL();
