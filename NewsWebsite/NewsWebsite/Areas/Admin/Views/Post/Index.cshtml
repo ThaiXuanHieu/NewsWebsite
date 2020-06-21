@@ -13,13 +13,8 @@
 
     <div>
         <a href="/Admin/Post/CreateHandle" class="btn btn-primary" style="margin-left:5px; float:left"><i class="fa fa-plus"></i> Tạo bài viết</a>
-        <form action="/Admin/tim-kiem/" + getSearchString() method="get" class="form-group" style="float:right">
+        <form action="/Admin/Post/SearchHandle" method="get" class="form-group" style="float:right">
             <input type="text" id="txtSearchString" name="searchString" class="form-control" style="width:400px; float:left" />
-            <script>
-                function getSearchString() {
-                    return document.getElementById('txtSearchString').value;
-                }
-            </script>
             <span>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Tìm kiếm</button>
             </span>

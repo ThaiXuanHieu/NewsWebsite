@@ -14,7 +14,7 @@
         public long? CategoryId { get; set; }
 
         [StringLength(500)]
-        [Required]
+        [Required(ErrorMessage ="Tiêu đề không được để trống")]
         [Display(Name ="Tiêu đề")]
         public string Title { get; set; }
 
@@ -22,12 +22,12 @@
         public string Alias { get; set; }
 
         [Column(TypeName = "ntext")]
-        [Required]
+        [Required(ErrorMessage ="Nội dung không được để trống")]
         [Display(Name ="Nội dung")]
         public string Content { get; set; }
 
         [StringLength(100)]
-        [Required]
+        [Required(ErrorMessage ="Tổng quan không được để trống")]
         [Display(Name ="Tổng quan")]
         public string Summary { get; set; }
 

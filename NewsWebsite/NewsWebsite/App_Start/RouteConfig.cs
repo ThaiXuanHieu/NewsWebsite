@@ -19,14 +19,7 @@ namespace NewsWebsite
                 defaults: new { controller = "Account", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "NewsWebsite.Controllers" }
             );
-
-            routes.MapRoute(
-                name: "Search",
-                url: "Admin/tim-kiem/{searchString}",
-                defaults: new { Areas = "Admin", controller = "Post", action = "SearchHandle", id = UrlParameter.Optional },
-                namespaces: new[] { "NewsWebsite.Areas.Admin.Controllers" }
-            );
-
+            
             routes.MapRoute(
                 name: "Post",
                 url: "{alias}",

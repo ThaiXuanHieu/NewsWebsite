@@ -7,7 +7,7 @@
 
 <!-- Page Header -->
 <div id="post-header" class="page-header">
-    <div class="background-img" style="background-image: url('@Url.Content("~/Assets/img/" + Model.Image)');"></div>
+    <div class="background-img" style="background-image: url('@Url.Content(Model.Image)');"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-10">
@@ -63,7 +63,7 @@
                     @foreach (var item in mostReadPosts)
                     {
                         <div class="post post-widget">
-                            <a class="post-img" href="@item.Alias"><img src="@Url.Content("~/Assets/img/" + item.Image)" alt=""></a>
+                            <a class="post-img" href="@item.Alias"><img src="@Url.Content(item.Image)" alt=""></a>
                             <div class="post-body">
                                 <h3 class="post-title"><a href="@item.Alias">@item.Title</a></h3>
                             </div>
