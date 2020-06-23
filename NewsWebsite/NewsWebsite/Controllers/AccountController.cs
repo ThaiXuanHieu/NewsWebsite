@@ -47,7 +47,7 @@ namespace NewsWebsite.Controllers
                         Session["UserId"] = login.Id;
                         Session["Username"] = login.Username;
                         Session["Fullname"] = login.LastName + " " + login.FirstName;
-                        return Redirect("/Home/Index");
+                        return Redirect("/trang-chu");
                     }
                 }
             }
@@ -83,7 +83,7 @@ namespace NewsWebsite.Controllers
                     if (action)
                     {
                         ViewBag.Message = "Đăng ký thành công";
-                        return Redirect("/Home/Index");
+                        return Redirect("/trang-chu");
                     }
                     else
                     {
@@ -99,7 +99,7 @@ namespace NewsWebsite.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return Redirect("/Home/Index");
+            return Redirect("/trang-chu");
         }
     }
 }

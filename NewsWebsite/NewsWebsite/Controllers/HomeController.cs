@@ -9,6 +9,7 @@ namespace NewsWebsite.Controllers
 {
     public class HomeController : Controller
     {
+        [Route("trang-chu")]
         public ActionResult Index()
         {
             return View();
