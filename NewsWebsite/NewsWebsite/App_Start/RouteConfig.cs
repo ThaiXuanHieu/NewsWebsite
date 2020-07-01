@@ -41,14 +41,13 @@ namespace NewsWebsite
                 defaults: new { Areas = "Admin", controller = "Post", action = "CreateHandle", id = UrlParameter.Optional },
                 namespaces: new[] { "NewsWebsite.Areas.Admin.Controllers" }
             );
-            
+
             routes.MapRoute(
                 name: "Home",
                 url: "{controller}/{action}/{id}", // => ""
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "NewsWebsite.Controllers" }
             );
-            
         }
     }
 }
