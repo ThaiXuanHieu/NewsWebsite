@@ -44,7 +44,7 @@ namespace NewsWebsite
 
             routes.MapRoute(
                 name: "Home",
-                url: "{controller}/{action}/{id}", // => ""
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "NewsWebsite.Controllers" }
             );
