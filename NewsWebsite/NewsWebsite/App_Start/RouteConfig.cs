@@ -34,14 +34,7 @@ namespace NewsWebsite
                 defaults: new { controller = "Category", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "NewsWebsite.Controllers" }
             );
-
-            routes.MapRoute(
-                name: "CreatePost",
-                url: "Admin/tao-bai-viet",
-                defaults: new { Areas = "Admin", controller = "Post", action = "CreateHandle", id = UrlParameter.Optional },
-                namespaces: new[] { "NewsWebsite.Areas.Admin.Controllers" }
-            );
-
+            
             routes.MapRoute(
                 name: "Home",
                 url: "{controller}/{action}/{id}",
